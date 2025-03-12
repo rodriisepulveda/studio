@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
+import ThemeSwitch from "../ui/theme-switch";
 
 const sections = [
   { id: "about", label: "Quiénes Somos", offset: -80 },
@@ -45,7 +46,6 @@ const Navbar = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    // Llamada inicial para establecer el estado correcto
     setTimeout(handleScroll, 100);
 
     return () => window.removeEventListener("scroll", handleScroll);
@@ -59,28 +59,33 @@ const Navbar = () => {
           : "opacity-0 pointer-events-none"
       }`}
     >
-      <div className="max-w-6xl mx-auto flex justify-center space-x-6 py-4">
-        {sections.map((section) => (
-          <Link
-            key={section.id}
-            to={section.id}
-            spy={false}
-            smooth={true}
-            duration={800}
-            offset={section.offset}
-            onClick={() => setActiveSection(section.id)}
-            className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300
-              hover:bg-white/20 dark:hover:bg-gray-800/40 cursor-pointer
-              ${
-                activeSection === section.id
-                  ? "bg-white/30 dark:bg-gray-800/40 text-gray-900 dark:text-white shadow-md"
-                  : "text-gray-600 dark:text-gray-400"
-              }
-            `}
-          >
-            {section.label}
-          </Link>
-        ))}
+      <div className="container mx-auto px-4 relative">
+        <div className="flex justify-center py-4">
+          {sections.map((section) => (
+            <Link
+              key={section.id}
+              to={section.id}
+              spy={false}
+              smooth={true}
+              duration={800}
+              offset={section.offset}
+              onClick={() => setActiveSection(section.id)}
+              className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300
+                hover:bg-white/20 dark:hover:bg-gray-800/40 cursor-pointer
+                ${
+                  activeSection === section.id
+                    ? "bg-white/30 dark:bg-gray-800/40 text-gray-900 dark:text-white shadow-md"
+                    : "text-gray-600 dark:text-gray-400"
+                }
+              `}
+            >
+              {section.label}
+            </Link>
+          ))}
+        </div>
+        <div className="absolute right-4 top-1/2 -translate-y-1/2">
+          <ThemeSwitch />
+        </div>
       </div>
     </nav>
   );

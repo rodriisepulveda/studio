@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-    darkMode: ["class"],
+    darkMode: "class",
     content: [
       "./index.html",
       "./src/**/*.{js,ts,jsx,tsx}",
@@ -31,7 +31,9 @@ export default {
     			},
     			primary: {
     				DEFAULT: 'hsl(var(--primary))',
-    				foreground: 'hsl(var(--primary-foreground))'
+    				foreground: 'hsl(var(--primary-foreground))',
+    				light: '#ff585e',
+    				dark: '#3663ff',
     			},
     			secondary: {
     				DEFAULT: 'hsl(var(--secondary))',

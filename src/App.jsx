@@ -22,6 +22,18 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    // Verificar el tema guardado o preferencia del sistema
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme) {
+      document.documentElement.classList.add(savedTheme);
+    } else if (prefersDark) {
+      document.documentElement.classList.add('dark');
+    }
+  }, []);
+
   return (
     <main className="relative">
       <Navbar />
