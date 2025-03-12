@@ -43,7 +43,7 @@ const About = () => {
             variants={itemVariants}
             className="section-description"
           >
-            Somos un equipo apasionado de desarrolladores y diseñadores que se dedica a crear experiencias digitales excepcionales.
+            Somos un equipo apasionado de desarrolladores y diseñadores que se dedica a crear experiencias digitales excepcionales!
           </motion.p>
           
           <motion.div
