@@ -15,9 +15,13 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
-      const heroHeight = document.getElementById("hero")?.offsetHeight || 0;
-      setIsVisible(scrollPosition > heroHeight - 50);
+      const scrollPosition = window.scrollY;
+      const aboutSection = document.getElementById("about");
+      
+      if (aboutSection) {
+        const aboutTop = aboutSection.offsetTop;
+        setIsVisible(scrollPosition >= aboutTop - 100);
+      }
 
       // Encontrar la sección activa
       let currentSection = "";
@@ -28,7 +32,7 @@ const Navbar = () => {
           const elementTop = top + window.scrollY;
           const elementBottom = bottom + window.scrollY;
           
-          if (scrollPosition >= elementTop && scrollPosition <= elementBottom) {
+          if (scrollPosition >= elementTop - 100 && scrollPosition <= elementBottom) {
             currentSection = id;
           }
         }
@@ -55,7 +59,7 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isVisible
-          ? "bg-white/60 dark:bg-gray-900/60 backdrop-blur-md shadow-md"
+          ? "bg-white/60 dark:bg-gray-900/60 backdrop-blur-md shadow-md opacity-100"
           : "opacity-0 pointer-events-none"
       }`}
     >
