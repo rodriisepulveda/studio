@@ -57,7 +57,6 @@ const ContactForm = () => {
       const selectedCountryData = countries.find(country => country.code === selectedCountry);
       const fullPhone = `${selectedCountryData.dialCode} ${formData.phone}`;
       
-      // Formatear los emails sin espacios
       const toEmails = 'facundo.preiss@davinci.edu.ar,rodrigo.sepulveda@davinci.edu.ar,rodris371@gmail.com';
 
       await emailjs.send(
@@ -93,7 +92,7 @@ const ContactForm = () => {
         >
           <h2 className="section-title">Contáctanos</h2>
           <p className="section-description">
-            ¿Tienes un proyecto en mente? Estamos aquí para ayudarte
+            ¿Tenes un proyecto en mente? Estamos aquí para ayudarte
           </p>
         </motion.div>
 
@@ -116,9 +115,10 @@ const ContactForm = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-600 
-                         bg-white dark:bg-gray-700 text-gray-900 dark:text-white
-                         focus:ring-2 focus:ring-[#ff585e] dark:focus:ring-[#3663ff] focus:border-transparent"
+                className="w-full px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-600 
+                         bg-white dark:bg-gray-800 text-gray-900 dark:text-white
+                         focus:ring-2 focus:ring-[#ff585e] dark:focus:ring-[#3663ff] focus:border-transparent
+                         transition-all duration-200"
               />
             </div>
 
@@ -133,9 +133,10 @@ const ContactForm = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-600 
-                         bg-white dark:bg-gray-700 text-gray-900 dark:text-white
-                         focus:ring-2 focus:ring-[#ff585e] dark:focus:ring-[#3663ff] focus:border-transparent"
+                className="w-full px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-600 
+                         bg-white dark:bg-gray-800 text-gray-900 dark:text-white
+                         focus:ring-2 focus:ring-[#ff585e] dark:focus:ring-[#3663ff] focus:border-transparent
+                         transition-all duration-200"
               />
             </div>
 
@@ -147,9 +148,10 @@ const ContactForm = () => {
                 <select
                   value={selectedCountry}
                   onChange={handleCountryChange}
-                  className="w-64 px-2 py-2 rounded border border-gray-300 dark:border-gray-600 
-                           bg-white dark:bg-gray-700 text-gray-900 dark:text-white
-                           focus:ring-2 focus:ring-[#ff585e] dark:focus:ring-[#3663ff] focus:border-transparent"
+                  className="w-64 px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-600 
+                           bg-white dark:bg-gray-800 text-gray-900 dark:text-white
+                           focus:ring-2 focus:ring-[#ff585e] dark:focus:ring-[#3663ff] focus:border-transparent
+                           transition-all duration-200"
                 >
                   {countries.map(country => (
                     <option key={country.code} value={country.code}>
@@ -165,9 +167,10 @@ const ContactForm = () => {
                   onChange={handleChange}
                   required
                   placeholder="Número de teléfono"
-                  className="flex-1 px-4 py-2 rounded border border-gray-300 dark:border-gray-600 
-                           bg-white dark:bg-gray-700 text-gray-900 dark:text-white
-                           focus:ring-2 focus:ring-[#ff585e] dark:focus:ring-[#3663ff] focus:border-transparent"
+                  className="flex-1 px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-600 
+                           bg-white dark:bg-gray-800 text-gray-900 dark:text-white
+                           focus:ring-2 focus:ring-[#ff585e] dark:focus:ring-[#3663ff] focus:border-transparent
+                           transition-all duration-200"
                 />
               </div>
             </div>
@@ -183,16 +186,18 @@ const ContactForm = () => {
                 onChange={handleChange}
                 required
                 rows="4"
-                className="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-600 
-                         bg-white dark:bg-gray-700 text-gray-900 dark:text-white
-                         focus:ring-2 focus:ring-[#ff585e] dark:focus:ring-[#3663ff] focus:border-transparent"
+                className="w-full px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-600 
+                         bg-white dark:bg-gray-800 text-gray-900 dark:text-white
+                         focus:ring-2 focus:ring-[#ff585e] dark:focus:ring-[#3663ff] focus:border-transparent
+                         transition-all duration-200"
               />
             </div>
 
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full btn-primary ${isSubmitting ? 'opacity-75 cursor-not-allowed' : ''} rounded`}
+              className={`w-full px-6 py-3 rounded-xl text-base font-medium btn-primary text-center cursor-pointer select-none
+                       ${isSubmitting ? 'opacity-75 cursor-not-allowed' : ''}`}
             >
               {isSubmitting ? (
                 <span className="flex items-center justify-center">
