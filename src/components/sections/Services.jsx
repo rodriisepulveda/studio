@@ -57,9 +57,9 @@ const Services = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
               whileHover={{ scale: 1.05 }}
-              className="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-center"
             >
-              <div className="w-12 h-12 bg-[#ff585e] dark:bg-[#3663ff] rounded-full flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-[#ff585e] dark:bg-[#3663ff] rounded-full flex items-center justify-center mb-4 mx-auto">
                 {service.icon}
               </div>
               <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
