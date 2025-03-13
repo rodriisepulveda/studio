@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Link } from "react-scroll";
 import ThemeSwitch from "../ui/theme-switch";
 
@@ -12,33 +12,39 @@ const sections = [
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("");
   const [isVisible, setIsVisible] = useState(false);
+  const sectionRefs = useRef({});
 
   useEffect(() => {
-    const handleScroll = () => {
+    sections.forEach(({ id }) => {
+      sectionRefs.current[id] = document.getElementById(id);
+    });
+  }, []);
+
+  const handleScroll = useCallback(() => {
+    clearTimeout(window.scrollDebounce);
+    window.scrollDebounce = setTimeout(() => {
       const scrollPosition = window.scrollY;
-      const aboutSection = document.getElementById("about");
-      
+      const aboutSection = sectionRefs.current["about"];
+
       if (aboutSection) {
         const aboutTop = aboutSection.offsetTop;
         setIsVisible(scrollPosition >= aboutTop - 100);
       }
 
-      // Encontrar la sección activa
       let currentSection = "";
       sections.forEach(({ id }) => {
-        const element = document.getElementById(id);
+        const element = sectionRefs.current[id];
         if (element) {
           const { top, bottom } = element.getBoundingClientRect();
           const elementTop = top + window.scrollY;
           const elementBottom = bottom + window.scrollY;
-          
+
           if (scrollPosition >= elementTop - 100 && scrollPosition <= elementBottom) {
             currentSection = id;
           }
         }
       });
 
-      // Si estamos cerca del final de la página, activar la última sección
       const nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100;
       if (nearBottom) {
         currentSection = "contact";
@@ -47,29 +53,28 @@ const Navbar = () => {
       if (currentSection) {
         setActiveSection(currentSection);
       }
-    };
+    }, 100);
+  }, []);
 
+  useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     setTimeout(handleScroll, 100);
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isVisible
-          ? "bg-white/60 dark:bg-gray-900/60 backdrop-blur-md shadow-md opacity-100"
-          : "opacity-0 pointer-events-none"
-      }`}
-    >
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      isVisible ? "bg-white/60 dark:bg-gray-900/60 backdrop-blur-md shadow-md opacity-100"
+               : "opacity-0 pointer-events-none"
+    }`}>
       <div className="container mx-auto px-4 relative">
         <div className="flex justify-center py-4">
           {sections.map((section) => (
             <Link
               key={section.id}
               to={section.id}
-              spy={false}
+              spy={true}
               smooth={true}
               duration={800}
               offset={section.offset}
@@ -95,4 +100,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar; 
+export default Navbar;

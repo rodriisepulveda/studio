@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import { RiLightbulbLine, RiTeamLine, RiShieldCheckLine } from 'react-icons/ri';
 
+
 const About = () => {
+  
+  
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {

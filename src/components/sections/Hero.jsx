@@ -2,7 +2,10 @@ import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 
+
 const Hero = () => {
+
+  
   const words = [
     {
       text: "LACRINOIDE",

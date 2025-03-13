@@ -5,6 +5,8 @@ import { EMAIL_CONFIG } from '../../config/email';
 import { RiInstagramLine, RiFacebookLine, RiWhatsappLine, RiMailLine } from 'react-icons/ri';
 
 const ContactForm = () => {
+
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
