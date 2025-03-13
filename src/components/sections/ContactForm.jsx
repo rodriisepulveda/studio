@@ -116,7 +116,7 @@ const ContactForm = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
+                className="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-600 
                          bg-white dark:bg-gray-700 text-gray-900 dark:text-white
                          focus:ring-2 focus:ring-[#ff585e] dark:focus:ring-[#3663ff] focus:border-transparent"
               />
@@ -133,7 +133,7 @@ const ContactForm = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
+                className="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-600 
                          bg-white dark:bg-gray-700 text-gray-900 dark:text-white
                          focus:ring-2 focus:ring-[#ff585e] dark:focus:ring-[#3663ff] focus:border-transparent"
               />
@@ -147,13 +147,13 @@ const ContactForm = () => {
                 <select
                   value={selectedCountry}
                   onChange={handleCountryChange}
-                  className="w-32 px-2 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
+                  className="w-64 px-2 py-2 rounded border border-gray-300 dark:border-gray-600 
                            bg-white dark:bg-gray-700 text-gray-900 dark:text-white
                            focus:ring-2 focus:ring-[#ff585e] dark:focus:ring-[#3663ff] focus:border-transparent"
                 >
                   {countries.map(country => (
                     <option key={country.code} value={country.code}>
-                      {country.dialCode} {country.code}
+                      {country.name} ({country.dialCode})
                     </option>
                   ))}
                 </select>
@@ -165,7 +165,7 @@ const ContactForm = () => {
                   onChange={handleChange}
                   required
                   placeholder="Número de teléfono"
-                  className="flex-1 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
+                  className="flex-1 px-4 py-2 rounded border border-gray-300 dark:border-gray-600 
                            bg-white dark:bg-gray-700 text-gray-900 dark:text-white
                            focus:ring-2 focus:ring-[#ff585e] dark:focus:ring-[#3663ff] focus:border-transparent"
                 />
@@ -183,7 +183,7 @@ const ContactForm = () => {
                 onChange={handleChange}
                 required
                 rows="4"
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
+                className="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-600 
                          bg-white dark:bg-gray-700 text-gray-900 dark:text-white
                          focus:ring-2 focus:ring-[#ff585e] dark:focus:ring-[#3663ff] focus:border-transparent"
               />
@@ -192,13 +192,13 @@ const ContactForm = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full btn-primary ${isSubmitting ? 'opacity-75 cursor-not-allowed' : ''}`}
+              className={`w-full btn-primary ${isSubmitting ? 'opacity-75 cursor-not-allowed' : ''} rounded`}
             >
               {isSubmitting ? (
                 <span className="flex items-center justify-center">
                   <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" ></path>
                   </svg>
                   Enviando...
                 </span>
