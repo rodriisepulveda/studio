@@ -2,21 +2,18 @@ import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 
-
 const Hero = () => {
-
-  
   const words = [
     {
       text: "LACRINOIDE",
-      className: "bg-clip-text text-transparent bg-gradient-to-r from-[#ff585e] to-[#ff8a8e] dark:from-[#3663ff] dark:to-[#6b8fff]",
+      className: "text-[#ff585e] dark:text-[#3663ff] font-black",
     }
   ];
 
   return (
     <section id="hero" className="min-h-screen flex items-center relative overflow-hidden">
-      {/* Fondo con gradiente */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-100 dark:from-gray-900 dark:to-gray-800" />
+      {/* Fondo con color sólido */}
+      <div className="absolute inset-0 bg-white dark:bg-gray-900" />
 
       <div className="container mx-auto px-4 md:px-8 lg:px-12 z-10">
         <div className="grid grid-cols-1 gap-12">
@@ -26,20 +23,20 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
             className="text-left space-y-8"
           >
-            {/* GODINES - Tamaño ajustado */}
+            {/* Título con color sólido */}
             <TypewriterEffectSmooth 
               words={words} 
               className="!text-[5rem] sm:!text-[6rem] md:!text-[7.5rem] lg:!text-[9rem] xl:!text-[10rem] !font-black !tracking-tighter !leading-[0.9]"
-              cursorClassName="!bg-[#ff8a8e] dark:!bg-[#6b8fff]"
+              cursorClassName="!bg-[#ff585e] dark:!bg-[#3663ff]"
             />
 
             {/* Texto descriptivo */}
             <div className="space-y-4 max-w-2xl">
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
-                Soluciones integrales <span className="text-primary-light dark:text-primary-dark">GORDO</span> el <span className="text-primary-light dark:text-primary-dark">PEREIRA</span>
+                Soluciones integrales para tu negocio
               </h2>
               <p className="text-neutral-600 dark:text-neutral-200 text-lg sm:text-xl">
-                Impulsando el tamaño de tu cock.
+                Desarrollo web, aplicaciones móviles y mantenimiento digital.
               </p>
 
               {/* Botones uno al lado del otro */}
@@ -89,7 +86,7 @@ const Hero = () => {
           spy={true}
           smooth={true}
           offset={-64}
-          className="text-neutral-600 dark:text-neutral-400 hover:text-primary-light dark:hover:text-primary-dark transition-colors"
+          className="text-neutral-600 dark:text-neutral-400 hover:text-[#ff585e] dark:hover:text-[#3663ff] transition-colors"
         >
           <svg
             className="w-8 h-8 animate-bounce"
