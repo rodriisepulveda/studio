@@ -2,10 +2,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { RiCodeSSlashLine, RiSmartphoneLine, RiSettings4Line, RiArrowDownSLine, RiLayoutGridLine } from 'react-icons/ri';
 import { useState } from 'react';
 
-
 const Services = () => {
   const [expandedCard, setExpandedCard] = useState(null);
-
 
   const services = [
     {
@@ -79,36 +77,31 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-20 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-4">
-        <motion.div className="text-center">
-          <h2 className="section-title">Nuestros Servicios</h2>
-          <p className="section-description">Soluciones digitales completas para potenciar tu negocio.</p>
+    <section id="services" className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900">
+      <div className="container mx-auto px-4 text-center">
+        <motion.div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white">Nuestros Servicios</h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 mt-4">Soluciones digitales completas para potenciar tu negocio.</p>
         </motion.div>
 
-        <div className="flex flex-col space-y-6 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 max-w-6xl mx-auto">
           {services.map((service, index) => (
             <motion.div key={service.title} onClick={() => toggleCard(index)}
-              className="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg cursor-pointer">
-              <div className="flex justify-between items-center">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-[#ff585e] dark:bg-[#3663ff] rounded-full flex items-center justify-center">
-                    {service.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold">{service.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-300">{service.summary}</p>
-                  </div>
+              className="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg cursor-pointer flex flex-col justify-between">
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 bg-[#ff585e] dark:bg-[#3663ff] rounded-full flex items-center justify-center">
+                  {service.icon}
                 </div>
-                <motion.div animate={{ rotate: expandedCard === index ? 180 : 0 }}>
-                  <RiArrowDownSLine className="w-6 h-6" />
-                </motion.div>
+                <div className="text-left">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{service.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300">{service.summary}</p>
+                </div>
               </div>
               <AnimatePresence>
                 {expandedCard === index && (
                   <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
-                    className="mt-4 border-t pt-4 overflow-hidden">
+                    className="mt-4 border-t pt-4 overflow-hidden text-left">
                     <h4 className="font-semibold">¿Cuándo elegir este servicio?</h4>
                     <ul className="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-300">
                       {service.whenToChoose.map(reason => <li key={reason}>{reason}</li>)}
