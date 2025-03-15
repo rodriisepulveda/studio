@@ -117,7 +117,7 @@ const TeamSlider = ({ team }) => {
             </motion.p>
           </motion.div>
 
-          <div className="flex gap-4 pt-12 md:pt-0">
+          <div className="flex gap-4 pt-16 md:pt-6">
             <button
               onClick={handlePrev}
               className="h-10 w-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group hover:bg-[#ff585e] dark:hover:bg-[#3663ff] transition-colors"
