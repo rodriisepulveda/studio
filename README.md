@@ -83,7 +83,8 @@ Sigue estos pasos para correr el proyecto en tu máquina local:
 
 ## Contribuidores
 
-![Contribuidores](https://raw.githubusercontent.com/rodriisepulveda/studio/main/contributors.svg)
+<!-- ALL-CONTRIBUTORS-LIST:START -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 📝 Licencia
 Este proyecto está bajo la Licencia MIT. Para más detalles, consulta el archivo LICENSE.md.
