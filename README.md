@@ -69,10 +69,17 @@ Sigue estos pasos para correr el proyecto en tu máquina local:
 1. Clona el repositorio:
    ```bash
    git clone https://github.com/tu-usuario/pvs-solutions.git
+   ```
 
-Instala las dependencias: npm install
+2. Instala las dependencias:
+  ```bash
+  npm install
+  ```
 
-Inicia el servidor de desarrollo: npm run dev
+3. Inicia el servidor de desarrollo:
+  ```bash
+  npm run dev
+  ```
 
 🛠️ Stack Completo
 Frontend
