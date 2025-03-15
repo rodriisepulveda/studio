@@ -9,7 +9,7 @@
 Este proyecto está construido con las siguientes tecnologías y herramientas:
 
 <div>
-  <img src="https://skillicons.dev/icons?i=react,tailwind,nodejs,vite,js,express,mongodb,git,github,vscode,figma" alt="Tech Stack" />
+  <img src="https://skillicons.dev/icons?i=react,tailwind,vite,js,git,github,vscode,figma" alt="Tech Stack" />
 </div>
 
 ---
@@ -91,7 +91,7 @@ Herramientas
 
 ## 👥 Equipo
 
-<div align="center">
+<div>
   <table>
     <tr>
       <td align="center">
