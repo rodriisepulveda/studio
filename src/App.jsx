@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "./components/layout/Navbar";
+import Navbar from "./components/sections/Navbar";
 import Hero from "./components/sections/Hero";
-import ContactForm from "./components/sections/ContactForm";
 import About from "./components/sections/About";
 import Services from "./components/sections/Services";
+import ContactForm from "./components/sections/ContactForm";
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -22,15 +22,26 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    // Verificar el tema guardado o preferencia del sistema
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme) {
+      document.documentElement.classList.add(savedTheme);
+    } else if (prefersDark) {
+      document.documentElement.classList.add('dark');
+    }
+  }, []);
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Navbar solo aparece después del Hero */}
-      {showNavbar && <Navbar />}
+    <main className="relative">
+      <Navbar />
       <Hero />
       <About />
       <Services />
       <ContactForm />
-    </div>
+    </main>
   );
 }
 

@@ -1,71 +1,155 @@
 import { motion } from 'framer-motion';
+import { RiCodeSSlashLine, RiSmartphoneLine, RiSettings4Line, RiLayoutGridLine } from 'react-icons/ri';
 
 const Services = () => {
   const services = [
     {
       title: "Desarrollo Web",
-      description: "Creamos sitios web modernos y responsivos que destacan tu marca y mejoran la experiencia de usuario.",
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-        </svg>
-      )
+      description: "Creamos sitios web modernos y responsivos con integración de bases de datos.",
+      icon: <RiCodeSSlashLine className="w-6 h-6" />, 
+      summary: "Creación de sitios web empresariales, tiendas online y plataformas interactivas.",
+      details: {
+        skills: ["Desarrollo Web", "Bases de Datos", "Stored Procedures"],
+        technologies: ["React", "Node.js", "Express", "HTML5", "CSS", "JavaScript", "PHP", "Java"],
+        databases: ["SQL Server", "Oracle", "MySQL"]
+      },
+      whenToChoose: [
+        "Si necesitas una presencia profesional en internet",
+        "Quieres vender productos o servicios online",
+        "Requieres un sistema de gestión empresarial"
+      ]
     },
     {
       title: "Desarrollo Mobile",
-      description: "Desarrollamos aplicaciones móviles nativas y multiplataforma que conectan con tu audiencia.",
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-        </svg>
-      )
+      description: "Creamos aplicaciones móviles nativas y multiplataforma para iOS y Android.",
+      icon: <RiSmartphoneLine className="w-6 h-6" />,
+      summary: "Apps intuitivas y optimizadas para ofrecer la mejor experiencia de usuario.",
+      details: {
+        skills: ["Apps Android", "Integración APIs", "Optimización"],
+        technologies: ["React Native", "Android", "Java", "Kotlin"],
+        databases: ["SQLite", "Firebase", "MongoDB"]
+      },
+      whenToChoose: [
+        "Si necesitas una app para tus clientes",
+        "Quieres ofrecer servicios móviles",
+        "Necesitas acceso offline a funcionalidades"
+      ]
     },
     {
       title: "Mantenimiento Web",
-      description: "Ofrecemos servicios de mantenimiento y actualización para mantener tu sitio web en óptimas condiciones.",
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-      )
+      description: "Nos encargamos de la seguridad, rendimiento y actualizaciones de tu web.",
+      icon: <RiSettings4Line className="w-6 h-6" />,
+      summary: "Optimización, actualizaciones y seguridad de sitios web empresariales.",
+      details: {
+        skills: ["Optimización", "Gestión de versiones", "Seguridad Web"],
+        technologies: ["DevOps", "CI/CD", "Docker", "AWS"],
+        databases: ["Mantenimiento DB", "Optimización", "Backups"]
+      },
+      whenToChoose: [
+        "Si ya tienes un sitio web que necesita mantenimiento",
+        "Quieres mejorar el rendimiento de tu plataforma",
+        "Necesitas actualizaciones de seguridad"
+      ]
+    },
+    {
+      title: "Diseño de Sistemas",
+      description: "Análisis y diseño de soluciones tecnológicas personalizadas.",
+      icon: <RiLayoutGridLine className="w-6 h-6" />,
+      summary: "Soluciones tecnológicas a medida con escalabilidad y optimización de procesos.",
+      details: {
+        skills: ["Análisis de Sistemas", "Arquitectura Software", "Gestión de Requerimientos"],
+        technologies: ["UML", "Arquitectura de Software", "Patrones de Diseño"],
+        databases: ["Modelado de Datos", "Optimización de DB"]
+      },
+      whenToChoose: [
+        "Si necesitas una solución personalizada",
+        "Quieres optimizar procesos empresariales",
+        "Requieres integración entre sistemas"
+      ]
     }
   ];
 
   return (
-    <section id="services" className="py-20 bg-white dark:bg-gray-900">
+    <section id="services" className="min-h-screen py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
-        <motion.div
+        <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center"
+          className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="section-title">Nuestros Servicios</h2>
-          <p className="section-description">
-            Ofrecemos soluciones digitales completas para impulsar tu negocio
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white">Nuestros Servicios</h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 mt-4">
+            Soluciones digitales completas para potenciar tu negocio.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              whileHover={{ scale: 1.05 }}
-              className="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+              transition={{ delay: index * 0.2 }}
+              whileHover={{ 
+                scale: 1.02,
+                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                transition: { duration: 0.2 }
+              }}
+              className="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg flex flex-col
+                         transform transition-all duration-200 hover:border-[#ff585e] dark:hover:border-[#3663ff]
+                         border-2 border-transparent overflow-hidden h-[600px]"
             >
-              <div className="w-12 h-12 bg-[#ff585e] dark:bg-[#3663ff] rounded-full flex items-center justify-center mb-4">
-                {service.icon}
+              {/* Contenido principal */}
+              <div className="p-6 h-[480px] overflow-y-auto">
+                {/* Encabezado */}
+                <div className="flex items-center space-x-4 mb-6">
+                  <div className="w-12 h-12 bg-[#ff585e] dark:bg-[#3663ff] rounded-full flex items-center justify-center text-white">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                    {service.title}
+                  </h3>
+                </div>
+
+                {/* Descripción */}
+                <p className="text-gray-600 dark:text-gray-300 mb-6">
+                  {service.description}
+                </p>
+
+                {/* Casos de uso */}
+                <div>
+                  <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
+                    Ideal para:
+                  </h4>
+                  <ul className="space-y-2 text-gray-600 dark:text-gray-300">
+                    {service.whenToChoose.map((reason, idx) => (
+                      <li key={idx} className="flex items-start">
+                        <span className="mr-2">•</span>
+                        <span>{reason}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                {service.description}
-              </p>
+
+              {/* Sección de tecnologías */}
+              <div className="h-[120px] border-t border-gray-200 dark:border-gray-700 p-4 bg-gray-100 dark:bg-gray-800/50">
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+                  Tecnologías:
+                </h4>
+                <div className="flex flex-wrap gap-1.5">
+                  {[...service.details.technologies].map((tech, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2 py-0.5 bg-[#ff585e] dark:bg-[#3663ff] text-white rounded-full text-sm"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -74,4 +158,4 @@ const Services = () => {
   );
 };
 
-export default Services; 
+export default Services;
