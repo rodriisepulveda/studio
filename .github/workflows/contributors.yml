@@ -11,19 +11,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Generate Contributors List
-        uses: BobAnkh/contributors-list@main
+      - name: Generate Contributors Image
+        uses: contributors-img/contributors-img@main
         with:
-          REPO_NAME: "rodriisepulveda/studio"
-          COMMIT_MESSAGE: "docs: Update contributors list"
-          COL_PER_ROW: 6  # Número de columnas por fila
-          IMG_WIDTH: 100   # Ancho de la imagen de perfil
-          FILTER: "all"    # Mostrar todos los contribuidores
+          REPOSITORY: "rodriisepulveda/studio"
+          IMG_WIDTH: 100
+          COL_PER_ROW: 6
+          COMMIT_MESSAGE: "docs: Update contributors image"
+          FILTER: "all"
 
       - name: Push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "docs: Update contributors list"
+          git commit -m "docs: Update contributors image"
           git push
