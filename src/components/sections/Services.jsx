@@ -1,10 +1,7 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { RiCodeSSlashLine, RiSmartphoneLine, RiSettings4Line, RiArrowDownSLine, RiLayoutGridLine } from 'react-icons/ri';
-import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { RiCodeSSlashLine, RiSmartphoneLine, RiSettings4Line, RiLayoutGridLine } from 'react-icons/ri';
 
 const Services = () => {
-  const [expandedCard, setExpandedCard] = useState(null);
-
   const services = [
     {
       title: "Desarrollo Web",
@@ -72,51 +69,87 @@ const Services = () => {
     }
   ];
 
-  const toggleCard = (index) => {
-    setExpandedCard(expandedCard === index ? null : index);
-  };
-
   return (
-    <section id="services" className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-4 text-center">
-        <motion.div className="max-w-4xl mx-auto">
+    <section id="services" className="min-h-screen py-20 bg-white dark:bg-gray-900">
+      <div className="container mx-auto px-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto text-center"
+        >
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white">Nuestros Servicios</h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 mt-4">Soluciones digitales completas para potenciar tu negocio.</p>
+          <p className="text-lg text-gray-600 dark:text-gray-300 mt-4">
+            Soluciones digitales completas para potenciar tu negocio.
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
           {services.map((service, index) => (
-            <motion.div key={service.title} onClick={() => toggleCard(index)}
-              className="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg cursor-pointer flex flex-col justify-between">
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-[#ff585e] dark:bg-[#3663ff] rounded-full flex items-center justify-center">
-                  {service.icon}
+            <motion.div
+              key={service.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.2 }}
+              whileHover={{ 
+                scale: 1.02,
+                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                transition: { duration: 0.2 }
+              }}
+              className="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg flex flex-col
+                         transform transition-all duration-200 hover:border-[#ff585e] dark:hover:border-[#3663ff]
+                         border-2 border-transparent overflow-hidden h-[600px]"
+            >
+              {/* Contenido principal */}
+              <div className="p-6 h-[480px] overflow-y-auto">
+                {/* Encabezado */}
+                <div className="flex items-center space-x-4 mb-6">
+                  <div className="w-12 h-12 bg-[#ff585e] dark:bg-[#3663ff] rounded-full flex items-center justify-center text-white">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                    {service.title}
+                  </h3>
                 </div>
-                <div className="text-left">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{service.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300">{service.summary}</p>
+
+                {/* Descripción */}
+                <p className="text-gray-600 dark:text-gray-300 mb-6">
+                  {service.description}
+                </p>
+
+                {/* Casos de uso */}
+                <div>
+                  <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
+                    Ideal para:
+                  </h4>
+                  <ul className="space-y-2 text-gray-600 dark:text-gray-300">
+                    {service.whenToChoose.map((reason, idx) => (
+                      <li key={idx} className="flex items-start">
+                        <span className="mr-2">•</span>
+                        <span>{reason}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-              <AnimatePresence>
-                {expandedCard === index && (
-                  <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
-                    className="mt-4 border-t pt-4 overflow-hidden text-left">
-                    <h4 className="font-semibold">¿Cuándo elegir este servicio?</h4>
-                    <ul className="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-300">
-                      {service.whenToChoose.map(reason => <li key={reason}>{reason}</li>)}
-                    </ul>
-                    <h4 className="font-semibold mt-4">Habilidades y Tecnologías</h4>
-                    <div className="flex flex-wrap gap-2 mt-2">
-                      {[...service.details.skills, ...service.details.technologies, ...service.details.databases].map(item => (
-                        <span key={item} className="px-3 py-1 bg-[#ff585e] dark:bg-[#3663ff] text-white rounded-full text-sm">
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+
+              {/* Sección de tecnologías */}
+              <div className="h-[120px] border-t border-gray-200 dark:border-gray-700 p-4 bg-gray-100 dark:bg-gray-800/50">
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+                  Tecnologías:
+                </h4>
+                <div className="flex flex-wrap gap-1.5">
+                  {[...service.details.technologies].map((tech, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2 py-0.5 bg-[#ff585e] dark:bg-[#3663ff] text-white rounded-full text-sm"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
