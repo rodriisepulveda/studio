@@ -69,23 +69,18 @@ Sigue estos pasos para correr el proyecto en tu máquina local:
 1. Clona el repositorio:
    ```bash
    git clone https://github.com/tu-usuario/pvs-solutions.git
-Instala las dependencias:
 
-bash
-Copy
-npm install
-Inicia el servidor de desarrollo:
+Instala las dependencias: npm install
 
-bash
-Copy
-npm run dev
+Inicia el servidor de desarrollo: npm run dev
+
 🛠️ Stack Completo
 Frontend
-<div align="center"> <img src="https://skillicons.dev/icons?i=react,tailwind,vite" alt="Frontend Stack" /> </div>
+<div> <img src="https://skillicons.dev/icons?i=react,tailwind,vite" alt="Frontend Stack" /> </div>
 Backend
-<div align="center"> <img src="https://skillicons.dev/icons?i=nodejs,express,mongodb" alt="Backend Stack" /> </div>
+<div> <img src="https://skillicons.dev/icons?i=nodejs,express,mongodb" alt="Backend Stack" /> </div>
 Herramientas
-<div align="center"> <img src="https://skillicons.dev/icons?i=git,github,vscode,figma" alt="Tools Stack" /> </div>
+<div> <img src="https://skillicons.dev/icons?i=git,github,vscode,figma" alt="Tools Stack" /> </div>
 
 ## 👥 Equipo
 
@@ -133,4 +128,4 @@ LinkedIn
 
 ✉️ Email: contacto@pvs.com
 
-<p align="center"> Hecho con ❤️ por <strong>PVS Solutions</strong> </p> ```
+<p> Hecho con ❤️ por <strong>PVS Solutions</strong> </p> ```
