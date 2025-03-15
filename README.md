@@ -8,7 +8,7 @@
 
 Este proyecto está construido con las siguientes tecnologías y herramientas:
 
-<div align="center">
+<div>
   <img src="https://skillicons.dev/icons?i=react,tailwind,nodejs,vite,js,express,mongodb,git,github,vscode,figma" alt="Tech Stack" />
 </div>
 
@@ -67,7 +67,7 @@ Este proyecto está construido con las siguientes tecnologías y herramientas:
 Sigue estos pasos para correr el proyecto en tu máquina local:
 
 1. Clona el repositorio:
-   ```bash
+  ```bash
    git clone https://github.com/tu-usuario/pvs-solutions.git
    ```
 
