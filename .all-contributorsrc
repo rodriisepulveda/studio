@@ -5,7 +5,16 @@
   "repoHost": "https://github.com",
   "files": ["README.md"],
   "imageSize": 100,
-  "commit": true,
+  "commit": false,
+  "commitConvention": "none",
   "contributors": [],
-  "contributorsPerLine": 6
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "types": {
+    "custom": {
+      "symbol": "🔭",
+      "description": "A custom contribution type.",
+      "link": "[<%= symbol %>](<%= url %> \"<%= description %>\")"
+    }
+  }
 }
