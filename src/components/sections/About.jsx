@@ -26,19 +26,22 @@ const About = () => {
 
   const team = [
     {
-      name: "Roro",
+      name: "Rodrigo Sepúlveda",
+      nickname: "IDONNEO",
       role: "Frontend Developer",
       image: "https://avatar.iran.liara.run/public/33",
       description: "Especializado en crear interfaces modernas y responsivas utilizando React y Tailwind CSS. Apasionado por la experiencia de usuario y las animaciones fluidas."
     },
     {
-      name: "Facundo Pereira",
+      name: "Facundo Preiss",
+      nickname: "Montblack00",
       role: "Backend Developer",
       image: "https://avatar.iran.liara.run/public/48",
       description: "Experto en desarrollo de APIs y bases de datos, con enfoque en la seguridad y el rendimiento. Especialista en arquitectura de sistemas."
     },
     {
-      name: "Brian 'Maverick' Valls",
+      name: "Brian Valls",
+      nickname: "Maverick",
       role: "Full Stack Developer",
       image: "https://avatar.iran.liara.run/public/46",
       description: "Desarrollador versátil con experiencia en tecnologías frontend y backend. Enfocado en crear soluciones integrales y escalables."
