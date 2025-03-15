@@ -1,0 +1,11 @@
+{
+  "projectName": "studio",
+  "projectOwner": "rodriisepulveda",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": ["README.md"],
+  "imageSize": 100,
+  "commit": true,
+  "contributors": [],
+  "contributorsPerLine": 6
+}
