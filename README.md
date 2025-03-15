@@ -53,52 +53,38 @@ Herramientas
 
 ## 👥 Equipo
 
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://github.com/rodriisepulveda">
-        <img src="https://avatars.githubusercontent.com/u/113952538?v=4" width="100px;" alt="Rodrigo Sepúlveda"/>
-        <br />
-        <sub><b>Rodrigo Sepúlveda</b></sub>
-      </a>
-      <br />
-      <span>Frontend Developer</span>
-    </td>
-    <td align="center">
-      <a href="https://github.com/facupreiss">
-        <img src="https://avatars.githubusercontent.com/u/87654321?v=4" width="100px;" alt="Facundo Preiss"/>
-        <br />
-        <sub><b>Facundo Preiss</b></sub>
-      </a>
-      <br />
-      <span>Backend Developer</span>
-    </td>
-    <td align="center">
-      <a href="https://github.com/brianvalls">
-        <img src="https://avatars.githubusercontent.com/u/56781234?v=4" width="100px;" alt="Brian Valls"/>
-        <br />
-        <sub><b>Brian Valls</b></sub>
-      </a>
-      <br />
-      <span>Full Stack Developer</span>
-    </td>
-  </tr>
-</table>
+<div align="center">
+  <a href="https://github.com/rodriisepulveda">
+    <img src="https://avatars.githubusercontent.com/u/113952538?v=4" width="100" style="border-radius: 50%; border: 3px solid white;" alt="Rodrigo Sepúlveda"/>
+  </a>
+  <a href="https://github.com/facupreiss">
+    <img src="https://avatars.githubusercontent.com/u/115724589?v=4" width="100" style="border-radius: 50%; border: 3px solid white;" alt="Facundo Preiss"/>
+  </a>
+  <a href="https://github.com/brianvalls">
+    <img src="https://avatars.githubusercontent.com/u/203020267?v=4" width="100" style="border-radius: 50%; border: 3px solid white;" alt="Brian Valls"/>
+  </a>
+</div>
 
-📸 Screenshots
-[Aquí podrías agregar algunas capturas de pantalla de tu sitio]
+<div align="center">
+  <sub><b>Rodrigo Sepúlveda</b></sub> •
+  <sub><b>Facundo Preiss</b></sub> •
+  <sub><b>Brian Valls</b></sub>
+</div>
 
-🤝 Contribuir
-¡Las contribuciones son bienvenidas! Si tienes alguna idea, sugerencia o encuentras un bug, no dudes en abrir un issue o enviar un pull request. Por favor, lee nuestras guías de contribución antes de contribuir.
+<div align="center">
+  <span>Frontend Developer</span> •
+  <span>Backend Developer</span> •
+  <span>Full Stack Developer</span>
+</div>
 
 📝 Licencia
 Este proyecto está bajo la Licencia MIT. Para más detalles, consulta el archivo LICENSE.md.
 
 📞 Contacto
-¿Tienes preguntas o quieres colaborar? ¡No dudes en contactarnos!
+¿Tienes preguntas? ¡No dudes en contactarnos!
 
 LinkedIn
 
 ✉️ Email: contacto@pvs.com
 
-<p align="center"> Hecho con ❤️ por <strong>PVS Solutions</strong> </p> ```
+<p> Hecho con ❤️ por <strong>PVS Solutions</strong> </p> ```
