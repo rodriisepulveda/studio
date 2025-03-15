@@ -57,7 +57,7 @@ Herramientas
   <tr>
     <td align="center">
       <a href="https://github.com/rodriisepulveda">
-        <img src="https://avatars.githubusercontent.com/u/12345678?v=4" width="100px;" alt="Rodrigo Sepúlveda"/>
+        <img src="[https://avatars.githubusercontent.com/u/12345678?v=4](https://avatars.githubusercontent.com/u/113952538?v=4)" width="100px;" alt="Rodrigo Sepúlveda"/>
         <br />
         <sub><b>Rodrigo Sepúlveda</b></sub>
       </a>
