@@ -81,9 +81,9 @@ Sigue estos pasos para correr el proyecto en tu máquina local:
   npm run dev
   ```
 
-## 👥 Contribuidores
-<!-- CONTRIBUTORS-LIST:START -->
-<!-- CONTRIBUTORS-LIST:END -->
+## Contribuidores
+
+![Contribuidores](https://raw.githubusercontent.com/rodriisepulveda/studio/main/contributors.svg)
 
 📝 Licencia
 Este proyecto está bajo la Licencia MIT. Para más detalles, consulta el archivo LICENSE.md.
