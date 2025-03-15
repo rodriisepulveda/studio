@@ -16,7 +16,7 @@ Este proyecto está construido con las siguientes tecnologías y herramientas:
 
 ## ✨ Características Principales
 
-<div align="center">
+<div>
   <table>
     <tr>
       <td align="center">
