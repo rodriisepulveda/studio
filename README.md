@@ -4,7 +4,7 @@
 
 ---
 
-## :tools: Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 Este proyecto está construido con las siguientes tecnologías y herramientas:
 
@@ -92,10 +92,6 @@ Este proyecto está bajo la Licencia MIT. Para más detalles, consulta el archiv
 
 :telephone_receiver: Contacto
 ¿Tienes preguntas o quieres colaborar? ¡No dudes en contactarnos!
-
-LinkedIn
-
-:envelope: Email: contacto@pvs.com
 
 <p> Hecho con :heart: por <strong>PVS Solutions</strong> </p> ```
 
