@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
+import ImageSlider from '../ui/ImageSlider';
 
 const Hero = () => {
   const words = [
@@ -10,10 +11,30 @@ const Hero = () => {
     }
   ];
 
+  // Importar todas las imágenes dinámicamente
+  const imageFiles = import.meta.glob('../../assets/imgs/hero/*.(png|jpeg|jpg)', { eager: true });
+  const heroImages = Object.values(imageFiles).map(file => file.default);
+
   return (
     <section id="hero" className="min-h-screen flex items-center relative overflow-hidden">
-      {/* Fondo con color sólido */}
-      <div className="absolute inset-0 bg-white dark:bg-gray-900" />
+      {/* Fondo con slider */}
+      <div className="absolute inset-0">
+        <ImageSlider 
+          images={heroImages}
+          interval={10000}
+          transitionEffect="fade"
+          containerStyle={{
+            clipPath: "polygon(65% 0, 100% 0, 100% 100%, 35% 100%)"
+          }}
+        />
+      </div>
+
+      {/* Overlay para mejorar la legibilidad del texto */}
+      <div className="absolute inset-0 bg-white/80 dark:bg-gray-900/80" 
+           style={{
+             clipPath: "polygon(0 0, 70% 0, 40% 100%, 0 100%)"
+           }}
+      />
 
       <div className="container mx-auto px-4 md:px-8 lg:px-12 z-10">
         <div className="grid grid-cols-1 gap-12">
