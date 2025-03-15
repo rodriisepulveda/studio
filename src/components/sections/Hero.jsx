@@ -5,7 +5,7 @@ import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 const Hero = () => {
   const words = [
     {
-      text: "LACRINOIDE",
+      text: "PVS",
       className: "text-[#ff585e] dark:text-[#3663ff] font-black",
     }
   ];
@@ -47,13 +47,13 @@ const Hero = () => {
                 className="flex flex-col sm:flex-row gap-4 pt-6"
               >
                 <Link
-                  to="about"
+                  to="services"
                   spy={true}
                   smooth={true}
                   offset={-64}
                   className="w-full sm:w-44 px-6 py-3 rounded-full text-base font-medium btn-primary text-center cursor-pointer select-none"
                 >
-                  Quiénes Somos
+                  Servicios
                 </Link>
 
                 <Link
