@@ -1,60 +1,76 @@
-PVS Solutions 🚀
-![Hero Banner](URL_DE_TU_BANNER) <!-- Podrías agregar un banner de tu sitio aquí -->
+# PVS Solutions 🚀
 
-Sobre el Proyecto
-PVS Solutions es una plataforma web moderna que ofrece soluciones digitales integrales para empresas. Desarrollada con las últimas tecnologías web, proporciona una experiencia de usuario fluida y profesional.
+![Hero Banner](URL_DE_TU_BANNER) <!-- Agrega un banner épico aquí -->
 
-🛠️ Tecnologías Utilizadas
-[![Tech Stack](https://skillicons.dev/icons?i=react,tailwind,nodejs,vite,js)](https://skillicons.dev)
+**PVS Solutions** es una plataforma web moderna que ofrece soluciones digitales integrales para empresas. Desarrollada con las últimas tecnologías, proporciona una experiencia de usuario fluida, profesional y llena de magia. ✨
 
-✨ Características
-🎨 Diseño moderno y responsive
-🌙 Modo oscuro/claro
-⚡ Rendimiento optimizado
-🔄 Animaciones fluidas
-📱 Compatible con dispositivos móviles
+---
 
-🚀 Quick Start
-# Clonar el repositorio
-git clone https://github.com/tu-usuario/pvs-solutions.git
+## 🛠️ Tecnologías Utilizadas
 
-# Instalar dependencias
+Este proyecto está construido con las siguientes tecnologías y herramientas:
+
+<div align="left">
+  <img src="https://skillicons.dev/icons?i=react,tailwind,nodejs,vite,js,express,mongodb,git,github,vscode,figma" alt="Tech Stack" />
+</div>
+
+---
+
+## ✨ Características Principales
+
+- 🎨 **Diseño moderno y responsive**: Se ve increíble en cualquier dispositivo.
+- 🌙 **Modo oscuro/claro**: Para cuidar tus ojos a cualquier hora.
+- ⚡ **Rendimiento optimizado**: Velocidad y eficiencia aseguradas.
+- 🔄 **Animaciones fluidas**: Gracias a Framer Motion, todo cobra vida.
+- 📱 **Mobile-first**: Diseñado pensando en dispositivos móviles.
+
+---
+
+## 🚀 Quick Start
+
+Sigue estos pasos para correr el proyecto en tu máquina local:
+
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/tu-usuario/pvs-solutions.git
+Instala las dependencias:
+
+bash
+Copy
 npm install
+Inicia el servidor de desarrollo:
 
-# Iniciar servidor de desarrollo
+bash
+Copy
 npm run dev
-
-
 🛠️ Stack Completo
 Frontend
-[![Frontend Stack](https://skillicons.dev/icons?i=react,tailwind,framermotion,vite)](https://skillicons.dev)
-
+<div align="left"> <img src="https://skillicons.dev/icons?i=react,tailwind,framermotion,vite" alt="Frontend Stack" /> </div>
 Backend
-[![Backend Stack](https://skillicons.dev/icons?i=nodejs,express,mongodb)](https://skillicons.dev)
-
+<div align="left"> <img src="https://skillicons.dev/icons?i=nodejs,express,mongodb" alt="Backend Stack" /> </div>
 Herramientas
-[![Tools Stack](https://skillicons.dev/icons?i=git,github,vscode,figma)](https://skillicons.dev)
-
+<div align="left"> <img src="https://skillicons.dev/icons?i=git,github,vscode,figma" alt="Tools Stack" /> </div>
 👥 Equipo
 Rodrigo Sepúlveda - Frontend Developer
+
 Facundo Preiss - Backend Developer
+
 Brian 'Maverick' Valls - Full Stack Developer
 
 📸 Screenshots
 [Aquí podrías agregar algunas capturas de pantalla de tu sitio]
 
 🤝 Contribuir
-Las contribuciones son siempre bienvenidas. Por favor, lee nuestras guías de contribución antes de enviar un pull request.
+¡Las contribuciones son bienvenidas! Si tienes alguna idea, sugerencia o encuentras un bug, no dudes en abrir un issue o enviar un pull request. Por favor, lee nuestras guías de contribución antes de contribuir.
 
 📝 Licencia
-Este proyecto está bajo la Licencia MIT - mira el archivo [LICENSE.md](LICENSE.md) para más detalles.
+Este proyecto está bajo la Licencia MIT. Para más detalles, consulta el archivo LICENSE.md.
 
 📞 Contacto
-[![Contact](https://skillicons.dev/icons?i=linkedin)](URL_DE_TU_LINKEDIN)
+¿Tienes preguntas o quieres colaborar? ¡No dudes en contactarnos!
 
-¿Tienes preguntas? No dudes en contactarnos en [contacto@pvs.com](mailto:contacto@pvs.com)
+LinkedIn
 
----
-<p align="center">
-  Hecho con ❤️ por PVS Solutions
-</p>
+✉️ Email: contacto@pvs.com
+
+<p align="center"> Hecho con ❤️ por <strong>PVS Solutions</strong> </p> ```
