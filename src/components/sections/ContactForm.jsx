@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import { EMAIL_CONFIG } from '../../config/email';
 import { RiInstagramLine, RiFacebookLine, RiWhatsappLine, RiMailLine } from 'react-icons/ri';
+import ImageSlider from '../ui/ImageSlider';
 
 const ContactForm = () => {
 
@@ -83,9 +84,26 @@ const ContactForm = () => {
     }
   };
 
+  // Importar imágenes de contacto dinámicamente
+  const imageFiles = import.meta.glob('../../assets/imgs/contact/*.(png|jpeg|jpg)', { eager: true });
+  const contactImages = Object.values(imageFiles).map(file => file.default);
+
   return (
-    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800 relative overflow-hidden">
+      {/* Fondo con slider */}
+      <div className="absolute inset-0">
+        <ImageSlider 
+          images={contactImages}
+          interval={8000}
+          transitionEffect="fade"
+          containerStyle={{
+            maskImage: "linear-gradient(to right, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.2) 70%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to right, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.2) 70%, transparent 100%)"
+          }}
+        />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -106,7 +124,7 @@ const ContactForm = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="max-w-6xl mx-auto mt-12"
         >
-          <div className="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-8">
+          <div className="bg-white/70 dark:bg-gray-700/70 backdrop-blur-sm rounded-xl shadow-lg p-8"> {/* Añadido backdrop-blur y transparencia */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               {/* Formulario */}
               <div>
