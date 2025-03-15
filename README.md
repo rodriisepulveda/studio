@@ -81,13 +81,48 @@ Copy
 npm run dev
 🛠️ Stack Completo
 Frontend
-<div align="center"> <img src="https://skillicons.dev/icons?i=react,tailwind,framermotion,vite" alt="Frontend Stack" /> </div>
+<div align="center"> <img src="https://skillicons.dev/icons?i=react,tailwind,vite" alt="Frontend Stack" /> </div>
 Backend
 <div align="center"> <img src="https://skillicons.dev/icons?i=nodejs,express,mongodb" alt="Backend Stack" /> </div>
 Herramientas
 <div align="center"> <img src="https://skillicons.dev/icons?i=git,github,vscode,figma" alt="Tools Stack" /> </div>
-👥 Equipo
-<div align="center"> <a href="https://github.com/rodriisepulveda"> <img src="https://avatars.githubusercontent.com/u/113952538?v=4" width="100" style="border-radius: 50%; border: 3px solid white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" alt="Rodrigo Sepúlveda"/> <br /> <sub><b>Rodrigo Sepúlveda</b></sub> <br /> <span>Frontend Developer</span> </a> &nbsp;&nbsp;&nbsp; <a href="https://github.com/facupreiss"> <img src="https://avatars.githubusercontent.com/u/115724589?v=4" width="100" style="border-radius: 50%; border: 3px solid white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" alt="Facundo Preiss"/> <br /> <sub><b>Facundo Preiss</b></sub> <br /> <span>Backend Developer</span> </a> &nbsp;&nbsp;&nbsp; <a href="https://github.com/brianvalls"> <img src="https://avatars.githubusercontent.com/u/203020267?v=4" width="100" style="border-radius: 50%; border: 3px solid white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" alt="Brian Valls"/> <br /> <sub><b>Brian Valls</b></sub> <br /> <span>Full Stack Developer</span> </a> </div>
+
+## 👥 Equipo
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <a href="https://github.com/rodriisepulveda">
+          <img src="https://avatars.githubusercontent.com/u/113952538?v=4" width="100" style="border-radius: 50%; border: 3px solid white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);" alt="Rodrigo Sepúlveda"/>
+          <br />
+          <sub><b>Rodrigo Sepúlveda</b></sub>
+          <br />
+          <span>Frontend Developer</span>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/facupreiss">
+          <img src="https://avatars.githubusercontent.com/u/115724589?v=4" width="100" style="border-radius: 50%; border: 3px solid white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);" alt="Facundo Preiss"/>
+          <br />
+          <sub><b>Facundo Preiss</b></sub>
+          <br />
+          <span>Backend Developer</span>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/brianvalls">
+          <img src="https://avatars.githubusercontent.com/u/203020267?v=4" width="100" style="border-radius: 50%; border: 3px solid white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);" alt="Brian Valls"/>
+          <br />
+          <sub><b>Brian Valls</b></sub>
+          <br />
+          <span>Full Stack Developer</span>
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>
+
 📝 Licencia
 Este proyecto está bajo la Licencia MIT. Para más detalles, consulta el archivo LICENSE.md.
 
