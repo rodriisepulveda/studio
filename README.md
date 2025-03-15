@@ -84,6 +84,11 @@ Sigue estos pasos para correr el proyecto en tu máquina local:
 ## Contribuidores
 
 <!-- ALL-CONTRIBUTORS-LIST:START -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 📝 Licencia
