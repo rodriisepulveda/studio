@@ -50,12 +50,40 @@ Backend
 <div align="left"> <img src="https://skillicons.dev/icons?i=nodejs,express,mongodb" alt="Backend Stack" /> </div>
 Herramientas
 <div align="left"> <img src="https://skillicons.dev/icons?i=git,github,vscode,figma" alt="Tools Stack" /> </div>
-👥 Equipo
-Rodrigo Sepúlveda - Frontend Developer
 
-Facundo Preiss - Backend Developer
+## 👥 Equipo
 
-Brian 'Maverick' Valls - Full Stack Developer
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/rodriisepulveda">
+        <img src="https://avatars.githubusercontent.com/u/12345678?v=4" width="100px;" alt="Rodrigo Sepúlveda"/>
+        <br />
+        <sub><b>Rodrigo Sepúlveda</b></sub>
+      </a>
+      <br />
+      <span>Frontend Developer</span>
+    </td>
+    <td align="center">
+      <a href="https://github.com/facupreiss">
+        <img src="https://avatars.githubusercontent.com/u/87654321?v=4" width="100px;" alt="Facundo Preiss"/>
+        <br />
+        <sub><b>Facundo Preiss</b></sub>
+      </a>
+      <br />
+      <span>Backend Developer</span>
+    </td>
+    <td align="center">
+      <a href="https://github.com/brianvalls">
+        <img src="https://avatars.githubusercontent.com/u/56781234?v=4" width="100px;" alt="Brian Valls"/>
+        <br />
+        <sub><b>Brian Valls</b></sub>
+      </a>
+      <br />
+      <span>Full Stack Developer</span>
+    </td>
+  </tr>
+</table>
 
 📸 Screenshots
 [Aquí podrías agregar algunas capturas de pantalla de tu sitio]
