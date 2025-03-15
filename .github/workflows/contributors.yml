@@ -11,19 +11,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Generate Contributors Image
-        uses: contributors-img/contributors-img@main
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          REPOSITORY: "rodriisepulveda/studio"
-          IMG_WIDTH: 100
-          COL_PER_ROW: 6
-          COMMIT_MESSAGE: "docs: Update contributors image"
-          FILTER: "all"
+          node-version: 16
 
-      - name: Push changes
+      - name: Install all-contributors-cli
+        run: npm install -g all-contributors-cli
+
+      - name: Generate Contributors List
+        run: npx all-contributors generate
+
+      - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "docs: Update contributors image"
+          git commit -m "docs: Update contributors list"
           git push
