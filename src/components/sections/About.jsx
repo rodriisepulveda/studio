@@ -49,27 +49,27 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="h-screen flex items-center">
-      <div className="container mx-auto px-4">
+    <section id="about" className="min-h-screen py-16 px-4">
+      <div className="container mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center mb-12"
+          className="max-w-4xl mx-auto text-center mb-8 md:mb-12"
         >
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white">Sobre Nosotros</h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 mt-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Sobre Nosotros</h2>
+          <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 mt-4">
             Conoce al equipo detrás de las soluciones
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           {/* Columna izquierda - Team Slider */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex items-center justify-center"
+            className="flex items-center justify-center mb-8 lg:mb-0"
           >
             <TeamSlider team={team} />
           </motion.div>
@@ -79,7 +79,7 @@ const About = () => {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="space-y-4 md:space-y-6"
           >
             {[
               {
@@ -101,15 +101,15 @@ const About = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="p-8 bg-white dark:bg-gray-700 rounded-xl shadow-lg flex flex-col items-center w-full"
+                className="p-4 md:p-8 bg-white dark:bg-gray-700 rounded-xl shadow-lg flex flex-col items-center w-full"
               >
-                <div className="w-16 h-16 bg-[#ff585e] dark:bg-[#3663ff] rounded-full flex items-center justify-center mb-4">
+                <div className="w-12 h-12 md:w-16 md:h-16 bg-[#ff585e] dark:bg-[#3663ff] rounded-full flex items-center justify-center mb-4">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
+                <h3 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 dark:text-white">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-center">
+                <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 text-center">
                   {feature.description}
                 </p>
               </motion.div>

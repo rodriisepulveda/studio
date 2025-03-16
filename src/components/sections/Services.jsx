@@ -70,21 +70,21 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="min-h-screen py-20">
+    <section id="services" className="min-h-screen py-12 md:py-20">
       <div className="container mx-auto px-4">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center"
+          className="max-w-4xl mx-auto text-center mb-8 md:mb-12"
         >
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white">Nuestros Servicios</h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 mt-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Nuestros Servicios</h2>
+          <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 mt-4">
             Soluciones digitales completas para potenciar tu negocio.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mt-8 md:mt-12">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -99,16 +99,16 @@ const Services = () => {
               }}
               className="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg flex flex-col
                          transform transition-all duration-200 hover:border-[#ff585e] dark:hover:border-[#3663ff]
-                         border-2 border-transparent overflow-hidden h-[600px]"
+                         border-2 border-transparent overflow-hidden min-h-[500px] md:h-[600px]"
             >
               {/* Contenido principal */}
-              <div className="p-6 h-[480px] overflow-y-auto">
+              <div className="p-4 md:p-6 flex-grow overflow-y-auto">
                 {/* Encabezado */}
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className="w-12 h-12 bg-[#ff585e] dark:bg-[#3663ff] rounded-full flex items-center justify-center text-white">
+                <div className="flex items-center space-x-3 md:space-x-4 mb-4 md:mb-6">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-[#ff585e] dark:bg-[#3663ff] rounded-full flex items-center justify-center text-white">
                     {service.icon}
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                  <h3 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white">
                     {service.title}
                   </h3>
                 </div>
@@ -135,15 +135,15 @@ const Services = () => {
               </div>
 
               {/* Sección de tecnologías */}
-              <div className="h-[120px] border-t border-gray-200 dark:border-gray-700 p-4 bg-gray-100 dark:bg-gray-800/50">
-                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+              <div className="p-3 md:p-4 border-t border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800/50">
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm md:text-base">
                   Tecnologías:
                 </h4>
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-1 md:gap-1.5">
                   {[...service.details.technologies].map((tech, idx) => (
                     <span
                       key={idx}
-                      className="px-2 py-0.5 bg-[#ff585e] dark:bg-[#3663ff] text-white rounded-full text-sm"
+                      className="px-2 py-0.5 bg-[#ff585e] dark:bg-[#3663ff] text-white rounded-full text-xs md:text-sm"
                     >
                       {tech}
                     </span>

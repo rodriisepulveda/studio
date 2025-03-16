@@ -16,63 +16,70 @@ const Hero = () => {
   const heroImages = Object.values(imageFiles).map(file => file.default);
 
   return (
-    <section id="hero" className="min-h-screen flex items-center relative overflow-hidden">
-      {/* Fondo con slider */}
+    <section id="hero" className="min-h-screen relative overflow-hidden flex items-center">
+      {/* Fondo con slider - ajustado para móviles */}
       <div className="absolute inset-0">
         <ImageSlider 
           images={heroImages}
           interval={10000}
           transitionEffect="fade"
           containerStyle={{
-            clipPath: "polygon(65% 0, 100% 0, 100% 100%, 35% 100%)"
+            clipPath: "polygon(45% 0, 100% 0, 100% 100%, 15% 100%)",
+            "@media (max-width: 768px)": {
+              clipPath: "polygon(0 45%, 100% 0, 100% 100%, 0 100%)"
+            }
           }}
         />
       </div>
 
-      {/* Overlay para mejorar la legibilidad del texto */}
-      <div className="absolute inset-0 bg-white/90 dark:bg-gray-900/90" 
-           style={{
-             clipPath: "polygon(0 0, 70% 0, 40% 100%, 0 100%)"
-           }}
+      {/* Overlay ajustado para móviles */}
+      <div 
+        className="absolute inset-0 bg-white/90 dark:bg-gray-900/90" 
+        style={{
+          clipPath: "polygon(0 0, 70% 0, 40% 100%, 0 100%)",
+          "@media (max-width: 768px)": {
+            clipPath: "polygon(0 0, 100% 0, 100% 55%, 0 100%)"
+          }
+        }}
       />
 
-      <div className="container mx-auto px-4 md:px-8 lg:px-12 z-10">
-        <div className="grid grid-cols-1 gap-12">
+      <div className="container mx-auto px-4 z-10">
+        <div className="grid grid-cols-1 gap-6 md:gap-12">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-left space-y-8"
+            className="text-left space-y-4 md:space-y-8"
           >
-            {/* Título con color sólido */}
+            {/* Título ajustado para móviles */}
             <TypewriterEffectSmooth 
               words={words} 
-              className="!text-[5rem] sm:!text-[6rem] md:!text-[7.5rem] lg:!text-[9rem] xl:!text-[10rem] !font-black !tracking-tighter !leading-[0.9]"
+              className="!text-[3rem] sm:!text-[4rem] md:!text-[6rem] lg:!text-[8rem] xl:!text-[10rem] !font-black !tracking-tighter !leading-[0.9]"
               cursorClassName="!bg-[#ff585e] dark:!bg-[#3663ff]"
             />
 
-            {/* Texto descriptivo */}
-            <div className="space-y-4 max-w-2xl">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
+            {/* Texto descriptivo ajustado */}
+            <div className="space-y-3 md:space-y-4 max-w-2xl">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">
                 Soluciones integrales para tu negocio
               </h2>
-              <p className="text-neutral-600 dark:text-neutral-200 text-lg sm:text-xl">
+              <p className="text-base sm:text-lg md:text-xl text-neutral-600 dark:text-neutral-200">
                 Desarrollo web, aplicaciones móviles y mantenimiento digital.
               </p>
 
-              {/* Botones uno al lado del otro */}
+              {/* Botones ajustados */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="flex flex-col sm:flex-row gap-4 pt-6"
+                className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-4 md:pt-6"
               >
                 <Link
                   to="services"
                   spy={true}
                   smooth={true}
                   offset={-64}
-                  className="w-full sm:w-44 px-6 py-3 rounded-full text-base font-medium btn-primary text-center cursor-pointer select-none"
+                  className="w-full sm:w-auto px-6 py-3 rounded-full text-sm md:text-base font-medium btn-primary text-center"
                 >
                   Servicios
                 </Link>
@@ -82,10 +89,7 @@ const Hero = () => {
                   spy={true}
                   smooth={true}
                   offset={-64}
-                  className="w-full sm:w-44 px-6 py-3 rounded-full text-base font-medium transition-all duration-200
-                            border-2 border-[#ff585e] dark:border-[#3663ff] text-[#ff585e] dark:text-[#3663ff]
-                            hover:bg-[#ff585e] dark:hover:bg-[#3663ff] hover:text-white dark:hover:text-white text-center
-                            bg-transparent hover:shadow-lg cursor-pointer select-none"
+                  className="w-full sm:w-auto px-6 py-3 rounded-full text-sm md:text-base font-medium border-2 border-[#ff585e] dark:border-[#3663ff] hover:bg-[#ff585e] dark:hover:bg-[#3663ff] text-center"
                 >
                   Contáctanos
                 </Link>
@@ -95,9 +99,9 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Flecha hacia abajo */}
+      {/* Flecha ajustada */}
       <motion.div 
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 cursor-pointer"
+        className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 cursor-pointer"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1 }}
@@ -107,10 +111,10 @@ const Hero = () => {
           spy={true}
           smooth={true}
           offset={-64}
-          className="text-neutral-600 dark:text-neutral-400 hover:text-[#ff585e] dark:hover:text-[#3663ff] transition-colors"
+          className="text-neutral-600 dark:text-neutral-400 hover:text-[#ff585e] dark:hover:text-[#3663ff]"
         >
           <svg
-            className="w-8 h-8 animate-bounce"
+            className="w-6 h-6 md:w-8 md:h-8 animate-bounce"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"

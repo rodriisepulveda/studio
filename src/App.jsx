@@ -47,7 +47,7 @@ function App() {
           },
         }}
       />
-      <main className="relative min-h-screen bg-pattern-1">
+      <main className="relative min-h-screen bg-pattern-11">
         <Navbar />
         <Hero />
         <About />
