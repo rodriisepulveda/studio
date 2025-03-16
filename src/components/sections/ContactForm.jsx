@@ -172,7 +172,9 @@ const ContactForm = () => {
                         <select
                           value={selectedCountry}
                           onChange={handleCountryChange}
-                          className="w-full sm:w-64 px-4 py-2 rounded-xl"
+                          className="w-full sm:w-64 px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-600 
+                                     bg-white dark:bg-gray-800 text-gray-900 dark:text-white
+                                     focus:ring-2 focus:ring-[#ff585e] dark:focus:ring-[#3663ff] focus:border-transparent"
                         >
                           {countries.map(country => (
                             <option key={country.code} value={country.code}>
@@ -188,7 +190,9 @@ const ContactForm = () => {
                           onChange={handleChange}
                           required
                           placeholder="Número de teléfono"
-                          className="w-full flex-1 px-4 py-2 rounded-xl"
+                          className="w-full flex-1 px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-600 
+                                     bg-white dark:bg-gray-800 text-gray-900 dark:text-white
+                                     focus:ring-2 focus:ring-[#ff585e] dark:focus:ring-[#3663ff] focus:border-transparent"
                         />
                       </div>
                     </div>
