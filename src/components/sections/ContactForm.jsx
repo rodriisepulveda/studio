@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser';
 import { EMAIL_CONFIG } from '../../config/email';
 import { RiInstagramLine, RiFacebookLine, RiWhatsappLine, RiMailLine } from 'react-icons/ri';
 import ImageSlider from '../ui/ImageSlider';
+import toast from 'react-hot-toast';
 
 const ContactForm = () => {
 
@@ -74,10 +75,10 @@ const ContactForm = () => {
         EMAIL_CONFIG.PUBLIC_KEY
       );
       
-      setSubmitStatus('success');
+      toast.success('¡Mensaje enviado! Nos pondremos en contacto contigo pronto.');
       setFormData({ name: '', email: '', phone: '', message: '' });
     } catch (error) {
-      setSubmitStatus('error');
+      toast.error('Error al enviar el mensaje. Por favor, intenta nuevamente.');
       console.error('Error al enviar el mensaje:', error);
     } finally {
       setIsSubmitting(false);
@@ -89,7 +90,7 @@ const ContactForm = () => {
   const contactImages = Object.values(imageFiles).map(file => file.default);
 
   return (
-    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800 relative overflow-hidden">
+    <section id="contact" className="py-20 relative overflow-hidden">
       {/* Fondo con slider */}
       <div className="absolute inset-0">
         <ImageSlider 

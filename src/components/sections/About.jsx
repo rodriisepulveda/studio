@@ -49,7 +49,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="h-screen flex items-center bg-white dark:bg-gray-900">
+    <section id="about" className="h-screen flex items-center">
       <div className="container mx-auto px-4">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

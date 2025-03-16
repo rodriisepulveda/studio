@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Toaster } from "react-hot-toast";
 import Navbar from "./components/sections/Navbar";
 import Hero from "./components/sections/Hero";
 import About from "./components/sections/About";
@@ -35,13 +36,25 @@ function App() {
   }, []);
 
   return (
-    <main className="relative">
-      <Navbar />
-      <Hero />
-      <About />
-      <Services />
-      <ContactForm />
-    </main>
+    <>
+      <Toaster 
+        position="bottom-center"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: '#333',
+            color: '#fff',
+          },
+        }}
+      />
+      <main className="relative min-h-screen bg-pattern-1">
+        <Navbar />
+        <Hero />
+        <About />
+        <Services />
+        <ContactForm />
+      </main>
+    </>
   );
 }
 

@@ -31,4 +31,212 @@
   .section-description {
     @apply text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-center mb-12;
   }
+}
+
+/* Patrones de fondo */
+.bg-pattern-1 {
+  @apply bg-white dark:bg-gray-900;
+  background-image: 
+    radial-gradient(rgba(255, 88, 94, 0.1) 1px, transparent 1px),
+    radial-gradient(rgba(255, 88, 94, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+
+.dark .bg-pattern-1 {
+  background-image: 
+    radial-gradient(rgba(54, 99, 255, 0.1) 1px, transparent 1px),
+    radial-gradient(rgba(54, 99, 255, 0.1) 1px, transparent 1px);
+}
+
+/* Un patrón más sutil y moderno */
+.bg-pattern-2 {
+  @apply bg-white dark:bg-gray-900;
+  background-image: 
+    linear-gradient(rgba(255, 88, 94, 0.05) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255, 88, 94, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.dark .bg-pattern-2 {
+  background-image: 
+    linear-gradient(rgba(54, 99, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to right, rgba(54, 99, 255, 0.05) 1px, transparent 1px);
+}
+
+/* Patrón diagonal */
+.bg-pattern-3 {
+  @apply bg-white dark:bg-gray-900;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 88, 94, 0.03) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 88, 94, 0.03) 50%,
+    rgba(255, 88, 94, 0.03) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 40px 40px;
+}
+
+.dark .bg-pattern-3 {
+  background: linear-gradient(
+    135deg,
+    rgba(54, 99, 255, 0.03) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(54, 99, 255, 0.03) 50%,
+    rgba(54, 99, 255, 0.03) 75%,
+    transparent 75%,
+    transparent
+  );
+}
+
+.bg-pattern-4 {
+  background-image: 
+    linear-gradient(30deg, #f0f0f0 12%, transparent 12.5%, transparent 87%, #f0f0f0 87.5%, #f0f0f0),
+    linear-gradient(150deg, #f0f0f0 12%, transparent 12.5%, transparent 87%, #f0f0f0 87.5%, #f0f0f0),
+    linear-gradient(30deg, #f0f0f0 12%, transparent 12.5%, transparent 87%, #f0f0f0 87.5%, #f0f0f0),
+    linear-gradient(150deg, #f0f0f0 12%, transparent 12.5%, transparent 87%, #f0f0f0 87.5%, #f0f0f0),
+    linear-gradient(60deg, #f0f0f077 25%, transparent 25.5%, transparent 75%, #f0f0f077 75%, #f0f0f077),
+    linear-gradient(60deg, #f0f0f077 25%, transparent 25.5%, transparent 75%, #f0f0f077 75%, #f0f0f077);
+  background-size: 80px 140px;
+  background-color: #ffffff;
+}
+
+.dark .bg-pattern-4 {
+  background-image: 
+    linear-gradient(30deg, #2a2a2a 12%, transparent 12.5%, transparent 87%, #2a2a2a 87.5%, #2a2a2a),
+    linear-gradient(150deg, #2a2a2a 12%, transparent 12.5%, transparent 87%, #2a2a2a 87.5%, #2a2a2a),
+    linear-gradient(30deg, #2a2a2a 12%, transparent 12.5%, transparent 87%, #2a2a2a 87.5%, #2a2a2a),
+    linear-gradient(150deg, #2a2a2a 12%, transparent 12.5%, transparent 87%, #2a2a2a 87.5%, #2a2a2a),
+    linear-gradient(60deg, #2a2a2a77 25%, transparent 25.5%, transparent 75%, #2a2a2a77 75%, #2a2a2a77),
+    linear-gradient(60deg, #2a2a2a77 25%, transparent 25.5%, transparent 75%, #2a2a2a77 75%, #2a2a2a77);
+  background-size: 80px 140px;
+  background-color: #1a1a1a;
+}
+
+.bg-pattern-5 {
+  background: 
+    radial-gradient(circle at 100% 50%, transparent 20%, rgba(54, 99, 255, 0.05) 21%, rgba(54, 99, 255, 0.05) 34%, transparent 35%, transparent),
+    radial-gradient(circle at 0% 50%, transparent 20%, rgba(54, 99, 255, 0.05) 21%, rgba(54, 99, 255, 0.05) 34%, transparent 35%, transparent) 0 -50px;
+  background-color: #ffffff;
+  background-size: 75px 100px;
+}
+
+.dark .bg-pattern-5 {
+  background: 
+    radial-gradient(circle at 100% 50%, transparent 20%, rgba(255, 88, 94, 0.05) 21%, rgba(255, 88, 94, 0.05) 34%, transparent 35%, transparent),
+    radial-gradient(circle at 0% 50%, transparent 20%, rgba(255, 88, 94, 0.05) 21%, rgba(255, 88, 94, 0.05) 34%, transparent 35%, transparent) 0 -50px;
+  background-color: #1a1a1a;
+  background-size: 75px 100px;
+}
+
+/* Patrón de ondas */
+.bg-pattern-6 {
+  @apply bg-white dark:bg-gray-900;
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 88, 94, 0.03) 0,
+      rgba(255, 88, 94, 0.03) 2px,
+      transparent 2px,
+      transparent 8px
+    );
+}
+
+.dark .bg-pattern-6 {
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      rgba(54, 99, 255, 0.03) 0,
+      rgba(54, 99, 255, 0.03) 2px,
+      transparent 2px,
+      transparent 8px
+    );
+}
+
+/* Patrón de puntos dispersos */
+.bg-pattern-7 {
+  @apply bg-white dark:bg-gray-900;
+  background-image: 
+    radial-gradient(rgba(255, 88, 94, 0.1) 1.5px, transparent 1.5px);
+  background-size: 25px 25px;
+}
+
+.dark .bg-pattern-7 {
+  background-image: 
+    radial-gradient(rgba(54, 99, 255, 0.1) 1.5px, transparent 1.5px);
+}
+
+/* Patrón de cuadrícula moderna */
+.bg-pattern-8 {
+  @apply bg-white dark:bg-gray-900;
+  background-image: 
+    linear-gradient(rgba(255, 88, 94, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 88, 94, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+  background-position: -1px -1px;
+}
+
+.dark .bg-pattern-8 {
+  background-image: 
+    linear-gradient(rgba(54, 99, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(54, 99, 255, 0.05) 1px, transparent 1px);
+}
+
+/* Patrón de hexágonos */
+.bg-pattern-9 {
+  @apply bg-white dark:bg-gray-900;
+  background: 
+    radial-gradient(circle farthest-side at 0% 50%, rgba(255, 88, 94, 0.05) 23.5%, rgba(240, 166, 17, 0) 0) 21px 30px,
+    radial-gradient(circle farthest-side at 0% 50%, rgba(255, 88, 94, 0.03) 24%, rgba(240, 166, 17, 0) 0) 19px 30px,
+    linear-gradient(rgba(255, 88, 94, 0.05) 14%, rgba(240, 166, 17, 0) 0, rgba(240, 166, 17, 0) 85%, rgba(255, 88, 94, 0.05) 0) 0 0,
+    linear-gradient(150deg, rgba(255, 88, 94, 0.05) 24%, rgba(240, 166, 17, 0) 0) 19px 30px;
+  background-size: 40px 60px;
+}
+
+.dark .bg-pattern-9 {
+  background: 
+    radial-gradient(circle farthest-side at 0% 50%, rgba(54, 99, 255, 0.05) 23.5%, rgba(240, 166, 17, 0) 0) 21px 30px,
+    radial-gradient(circle farthest-side at 0% 50%, rgba(54, 99, 255, 0.03) 24%, rgba(240, 166, 17, 0) 0) 19px 30px,
+    linear-gradient(rgba(54, 99, 255, 0.05) 14%, rgba(240, 166, 17, 0) 0, rgba(240, 166, 17, 0) 85%, rgba(54, 99, 255, 0.05) 0) 0 0,
+    linear-gradient(150deg, rgba(54, 99, 255, 0.05) 24%, rgba(240, 166, 17, 0) 0) 19px 30px;
+  background-size: 40px 60px;
+}
+
+/* Patrón de círculos concéntricos */
+.bg-pattern-10 {
+  @apply bg-white dark:bg-gray-900;
+  background: 
+    radial-gradient(circle at center, rgba(255, 88, 94, 0.01) 0, rgba(255, 88, 94, 0.01) 2px, transparent 2px) 0 0,
+    radial-gradient(circle at center, rgba(255, 88, 94, 0.01) 0, rgba(255, 88, 94, 0.01) 1px, transparent 1px) 10px 10px;
+  background-size: 20px 20px;
+}
+
+.dark .bg-pattern-10 {
+  background: 
+    radial-gradient(circle at center, rgba(54, 99, 255, 0.01) 0, rgba(54, 99, 255, 0.01) 2px, transparent 2px) 0 0,
+    radial-gradient(circle at center, rgba(54, 99, 255, 0.01) 0, rgba(54, 99, 255, 0.01) 1px, transparent 1px) 10px 10px;
+}
+
+/* Patrón de zigzag */
+.bg-pattern-11 {
+  @apply bg-white dark:bg-gray-900;
+  background: 
+    linear-gradient(135deg, rgba(255, 88, 94, 0.03) 25%, transparent 25%) -10px 0,
+    linear-gradient(225deg, rgba(255, 88, 94, 0.03) 25%, transparent 25%) -10px 0,
+    linear-gradient(315deg, rgba(255, 88, 94, 0.03) 25%, transparent 25%),
+    linear-gradient(45deg, rgba(255, 88, 94, 0.03) 25%, transparent 25%);
+  background-size: 20px 20px;
+}
+
+.dark .bg-pattern-11 {
+  background: 
+    linear-gradient(135deg, rgba(54, 99, 255, 0.03) 25%, transparent 25%) -10px 0,
+    linear-gradient(225deg, rgba(54, 99, 255, 0.03) 25%, transparent 25%) -10px 0,
+    linear-gradient(315deg, rgba(54, 99, 255, 0.03) 25%, transparent 25%),
+    linear-gradient(45deg, rgba(54, 99, 255, 0.03) 25%, transparent 25%);
 } 
+

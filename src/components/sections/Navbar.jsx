@@ -65,7 +65,7 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      isVisible ? "bg-white/60 dark:bg-gray-900/60 backdrop-blur-md shadow-md opacity-100"
+      isVisible ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md opacity-100"
                : "opacity-0 pointer-events-none"
     }`}>
       <div className="container mx-auto px-4 relative">

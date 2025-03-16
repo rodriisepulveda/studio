@@ -30,7 +30,7 @@ const Hero = () => {
       </div>
 
       {/* Overlay para mejorar la legibilidad del texto */}
-      <div className="absolute inset-0 bg-white/80 dark:bg-gray-900/80" 
+      <div className="absolute inset-0 bg-white/90 dark:bg-gray-900/90" 
            style={{
              clipPath: "polygon(0 0, 70% 0, 40% 100%, 0 100%)"
            }}

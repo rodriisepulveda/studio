@@ -70,7 +70,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="min-h-screen py-20 bg-white dark:bg-gray-900">
+    <section id="services" className="min-h-screen py-20">
       <div className="container mx-auto px-4">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
