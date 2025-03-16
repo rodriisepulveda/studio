@@ -58,6 +58,13 @@
   ```
 </div>
 
+## 🎯 Objetivos del Proyecto
+
+- Desarrollar soluciones web personalizadas y escalables
+- Crear experiencias de usuario intuitivas y atractivas
+- Optimizar el rendimiento y la seguridad de las aplicaciones
+- Proporcionar soporte técnico continuo y mantenimiento
+
 ## 💼 Servicios
 
 <div align="center">
