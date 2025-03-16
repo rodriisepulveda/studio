@@ -106,7 +106,16 @@ const ContactForm = () => {
         </motion.div>
 
         <motion.div className="max-w-6xl mx-auto">
-          <div className="relative rounded-xl shadow-lg overflow-hidden">
+          <motion.div 
+            className="relative rounded-xl shadow-lg overflow-hidden
+                     transform transition-all duration-200 hover:border-[#ff585e] dark:hover:border-[#3663ff]
+                     border-2 border-transparent"
+            whileHover={{ 
+              scale: 1.02,
+              boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+              transition: { duration: 0.2 }
+            }}
+          >
             {/* Slider de imágenes */}
             <div className="absolute inset-0 z-0">
               <ImageSlider 
@@ -305,7 +314,7 @@ const ContactForm = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

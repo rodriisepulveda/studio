@@ -99,9 +99,14 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Flecha ajustada */}
+      {/* Efecto de difuminado mejorado */}
+      <div className="absolute bottom-0 left-0 w-full">
+        <div className="h-64 bg-gradient-to-t from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent"></div>
+      </div>
+
+      {/* Flecha de scroll */}
       <motion.div 
-        className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 cursor-pointer"
+        className="absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 cursor-pointer z-20"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1 }}
@@ -111,7 +116,7 @@ const Hero = () => {
           spy={true}
           smooth={true}
           offset={-64}
-          className="text-neutral-600 dark:text-neutral-400 hover:text-[#ff585e] dark:hover:text-[#3663ff]"
+          className="text-neutral-600 dark:text-neutral-400 hover:text-[#ff585e] dark:hover:text-[#3663ff] transition-colors"
         >
           <svg
             className="w-6 h-6 md:w-8 md:h-8 animate-bounce"
