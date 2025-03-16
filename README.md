@@ -85,11 +85,37 @@ npm run dev
 ## 👥 Equipo
 
 <div align="center">
-
-[![rodriisepulveda](https://img.shields.io/badge/rodriisepulveda-Contribuidor-blue?style=for-the-badge&logo=github)](https://github.com/rodriisepulveda)
-[![facupreiss](https://img.shields.io/badge/facupreiss-Contribuidor-green?style=for-the-badge&logo=github)](https://github.com/facupreiss)
-[![brianvalls](https://img.shields.io/badge/brianvalls-Contribuidor-orange?style=for-the-badge&logo=github)](https://github.com/brianvalls)
-
+  <table>
+    <tr>
+      <td align="center">
+        <a href="https://github.com/rodriisepulveda">
+          <img src="https://avatars.githubusercontent.com/u/113952538?v=4" width="100px;" alt="Rodrigo Sepúlveda"/>
+          <br />
+          <sub>
+            <img src="https://img.shields.io/badge/rodriisepulveda-Contribuidor-blue?style=for-the-badge&logo=github" alt="rodriisepulveda"/>
+          </sub>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/facupreiss">
+          <img src="https://avatars.githubusercontent.com/u/115724589?v=4" width="100px;" alt="Facundo Preiss"/>
+          <br />
+          <sub>
+            <img src="https://img.shields.io/badge/facupreiss-Contribuidor-green?style=for-the-badge&logo=github" alt="facupreiss"/>
+          </sub>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/brianvalls">
+          <img src="https://avatars.githubusercontent.com/u/203020267?v=4" width="100px;" alt="Brian Valls"/>
+          <br />
+          <sub>
+            <img src="https://img.shields.io/badge/brianvalls-Contribuidor-orange?style=for-the-badge&logo=github" alt="brianvalls"/>
+          </sub>
+        </a>
+      </td>
+    </tr>
+  </table>
 </div>
 
 ## 🌟 Características Destacadas
