@@ -6,9 +6,13 @@ import { RiInstagramLine, RiFacebookLine, RiWhatsappLine, RiMailLine } from 'rea
 import ImageSlider from '../ui/ImageSlider';
 import toast from 'react-hot-toast';
 
-const ContactForm = () => {
+// Importar imágenes de contacto
+import contact1 from '../../assets/imgs/contact/contact1.jpeg';
+import contact2 from '../../assets/imgs/contact/contac2.jpeg';
+import contact3 from '../../assets/imgs/contact/contact3.jpeg';
+import contact4 from '../../assets/imgs/contact/contact4.jpeg';
 
-  
+const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,6 +23,14 @@ const ContactForm = () => {
   const [selectedCountry, setSelectedCountry] = useState('AR');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+
+  // Array de imágenes con sus textos alt
+  const contactImages = [
+    { src: contact1, alt: "Equipo de trabajo colaborando en un proyecto digital" },
+    { src: contact2, alt: "Reunión de equipo discutiendo estrategias de desarrollo" },
+    { src: contact3, alt: "Desarrolladores trabajando en una aplicación móvil" },
+    { src: contact4, alt: "Presentación de un proyecto de software" },
+  ];
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -85,10 +97,6 @@ const ContactForm = () => {
     }
   };
 
-  // Importar imágenes de contacto dinámicamente
-  const imageFiles = import.meta.glob('../../assets/imgs/contact/*.(png|jpeg|jpg)', { eager: true });
-  const contactImages = Object.values(imageFiles).map(file => file.default);
-
   return (
     <section id="contact" className="py-12 md:py-20 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
@@ -101,7 +109,7 @@ const ContactForm = () => {
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Contáctanos</h2>
           <p className="text-base md:text-lg text-gray-600 dark:text-gray-300">
-            ¿Tenes un proyecto en mente? Acá estamos para ayudarte.
+            ¿Tienes un proyecto en mente? Aquí estamos para ayudarte.
           </p>
         </motion.div>
 
@@ -128,7 +136,7 @@ const ContactForm = () => {
               />
             </div>
 
-            {/* Capa de fondo - eliminamos el blur */}
+            {/* Capa de fondo */}
             <div className="absolute inset-0 bg-white/70 dark:bg-gray-900/70 z-0"></div>
 
             {/* Contenido del formulario */}
@@ -137,6 +145,7 @@ const ContactForm = () => {
                 {/* Formulario */}
                 <div>
                   <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+                    {/* Campos del formulario */}
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                         Nombre
@@ -225,6 +234,7 @@ const ContactForm = () => {
                     </div>
 
                     <button
+                      aria-label="Enviar mensaje de contacto"
                       type="submit"
                       disabled={isSubmitting}
                       className={`w-full px-6 py-3 rounded-xl text-base font-medium btn-primary text-center cursor-pointer select-none
@@ -242,26 +252,6 @@ const ContactForm = () => {
                         'Enviar Mensaje'
                       )}
                     </button>
-
-                    {submitStatus === 'success' && (
-                      <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className="text-green-600 dark:text-green-400 text-center"
-                      >
-                        ¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.
-                      </motion.p>
-                    )}
-
-                    {submitStatus === 'error' && (
-                      <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className="text-red-600 dark:text-red-400 text-center"
-                      >
-                        Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.
-                      </motion.p>
-                    )}
                   </form>
                 </div>
 
@@ -271,9 +261,16 @@ const ContactForm = () => {
                     Información de Contacto
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 md:gap-6">
-                    <a href="#" className="flex items-center space-x-4 p-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl transition-all">
+                    {/* Instagram */}
+                    <a
+                      href="https://instagram.com/lacrinoide"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Síguenos en Instagram"
+                      className="flex items-center space-x-4 p-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl transition-all hover:scale-105 transform duration-300"
+                    >
                       <div className="w-10 h-10 md:w-12 md:h-12 bg-[#ff585e] dark:bg-[#3663ff] rounded-full flex items-center justify-center flex-shrink-0">
-                        <RiInstagramLine className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                        <RiInstagramLine className="w-5 h-5 md:w-6 md:h-6 text-white" aria-hidden="true" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <h4 className="font-medium text-sm md:text-base truncate">Instagram</h4>
@@ -281,9 +278,16 @@ const ContactForm = () => {
                       </div>
                     </a>
 
-                    <a href="#" className="flex items-center space-x-4 p-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl transition-all">
+                    {/* Facebook */}
+                    <a
+                      href="https://facebook.com/lacrinoide"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Síguenos en Facebook"
+                      className="flex items-center space-x-4 p-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl transition-all hover:scale-105 transform duration-300"
+                    >
                       <div className="w-10 h-10 md:w-12 md:h-12 bg-[#ff585e] dark:bg-[#3663ff] rounded-full flex items-center justify-center flex-shrink-0">
-                        <RiFacebookLine className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                        <RiFacebookLine className="w-5 h-5 md:w-6 md:h-6 text-white" aria-hidden="true" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <h4 className="font-medium text-sm md:text-base truncate">Facebook</h4>
@@ -291,9 +295,16 @@ const ContactForm = () => {
                       </div>
                     </a>
 
-                    <a href="#" className="flex items-center space-x-4 p-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl transition-all">
+                    {/* WhatsApp */}
+                    <a
+                      href="https://wa.me/541112345678"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Contáctanos por WhatsApp"
+                      className="flex items-center space-x-4 p-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl transition-all hover:scale-105 transform duration-300"
+                    >
                       <div className="w-10 h-10 md:w-12 md:h-12 bg-[#ff585e] dark:bg-[#3663ff] rounded-full flex items-center justify-center flex-shrink-0">
-                        <RiWhatsappLine className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                        <RiWhatsappLine className="w-5 h-5 md:w-6 md:h-6 text-white" aria-hidden="true" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <h4 className="font-medium text-sm md:text-base truncate">WhatsApp</h4>
@@ -301,9 +312,14 @@ const ContactForm = () => {
                       </div>
                     </a>
 
-                    <a href="#" className="flex items-center space-x-4 p-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl transition-all">
+                    {/* Email */}
+                    <a
+                      href="mailto:contacto@lacrinoide.com"
+                      aria-label="Envíanos un correo electrónico"
+                      className="flex items-center space-x-4 p-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl transition-all hover:scale-105 transform duration-300"
+                    >
                       <div className="w-10 h-10 md:w-12 md:h-12 bg-[#ff585e] dark:bg-[#3663ff] rounded-full flex items-center justify-center flex-shrink-0">
-                        <RiMailLine className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                        <RiMailLine className="w-5 h-5 md:w-6 md:h-6 text-white" aria-hidden="true" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <h4 className="font-medium text-sm md:text-base truncate">Email</h4>
@@ -321,4 +337,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm; 
+export default ContactForm;

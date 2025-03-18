@@ -100,6 +100,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 dark:text-gray-300 hover:text-[#ff585e] dark:hover:text-[#3663ff] transition-colors"
+                aria-label="Facebook"
               >
                 <FaFacebook className="w-5 h-5" />
               </a>
@@ -108,6 +109,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 dark:text-gray-300 hover:text-[#ff585e] dark:hover:text-[#3663ff] transition-colors"
+                aria-label="Twitter"
               >
                 <FaTwitter className="w-5 h-5" />
               </a>
@@ -116,6 +118,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 dark:text-gray-300 hover:text-[#ff585e] dark:hover:text-[#3663ff] transition-colors"
+                aria-label="Instagram"
               >
                 <FaInstagram className="w-5 h-5" />
               </a>
@@ -124,6 +127,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 dark:text-gray-300 hover:text-[#ff585e] dark:hover:text-[#3663ff] transition-colors"
+                aria-label="LinkedIn"
               >
                 <FaLinkedin className="w-5 h-5" />
               </a>
