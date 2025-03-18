@@ -46,7 +46,7 @@ const ImageSlider = ({
       <AnimatePresence mode="wait">
         <motion.img
           key={currentIndex}
-          src={images[currentIndex]}
+          src={images[currentIndex].src} // Usar images[currentIndex].src
           initial="enter"
           animate="center"
           exit="exit"
@@ -56,7 +56,7 @@ const ImageSlider = ({
             scale: { duration: 1 },
           }}
           className="absolute w-full h-full object-cover"
-          alt={`Slide ${currentIndex + 1}`}
+          alt={images[currentIndex].alt} // Usar images[currentIndex].alt
         />
       </AnimatePresence>
     </div>
@@ -64,11 +64,16 @@ const ImageSlider = ({
 };
 
 ImageSlider.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.string).isRequired,
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      src: PropTypes.string.isRequired,
+      alt: PropTypes.string.isRequired,
+    })
+  ).isRequired,
   interval: PropTypes.number,
   className: PropTypes.string,
   containerStyle: PropTypes.object,
   transitionEffect: PropTypes.oneOf(["fade", "zoom"])
 };
 
-export default ImageSlider; 
+export default ImageSlider;

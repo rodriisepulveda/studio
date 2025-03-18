@@ -72,24 +72,22 @@ const Navbar = () => {
         <div className="flex justify-center py-4">
           {sections.map((section) => (
             <Link
-              key={section.id}
-              to={section.id}
-              spy={true}
-              smooth={true}
-              duration={800}
-              offset={section.offset}
-              onClick={() => setActiveSection(section.id)}
-              className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300
-                hover:bg-white/20 dark:hover:bg-gray-800/40 cursor-pointer
-                ${
-                  activeSection === section.id
-                    ? "bg-white/30 dark:bg-gray-800/40 text-gray-900 dark:text-white shadow-md"
-                    : "text-gray-600 dark:text-gray-400"
-                }
-              `}
-            >
-              {section.label}
-            </Link>
+            key={section.id}
+            to={section.id}
+            spy={true}
+            smooth={true}
+            duration={800}
+            offset={section.offset}
+            aria-label={`Ir a la sección ${section.label}`} // Agregar aria-label
+            className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300
+                        hover:bg-white/20 dark:hover:bg-gray-800/40 cursor-pointer
+                        ${activeSection === section.id
+                          ? "bg-white/30 dark:bg-gray-800/40 text-gray-900 dark:text-white shadow-md"
+                          : "text-gray-600 dark:text-gray-400"
+                        }`}
+          >
+            {section.label}
+          </Link>
           ))}
         </div>
         <div className="absolute right-4 top-1/2 -translate-y-1/2">
