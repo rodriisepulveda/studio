@@ -68,32 +68,35 @@ const Hero = () => {
               </p>
 
               {/* Botones ajustados */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-4 md:pt-6"
-              >
-                <Link
-                  to="services"
-                  spy={true}
-                  smooth={true}
-                  offset={-64}
-                  className="w-full sm:w-auto px-6 py-3 rounded-full text-sm md:text-base font-medium btn-primary text-center"
-                >
-                  Servicios
-                </Link>
+             <motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, delay: 0.2 }}
+  className="flex flex-row flex-wrap gap-3 md:gap-4 pt-4 md:pt-6 items-start"
+>
+  {/* Botón de Servicios */}
+  <Link
+    to="services"
+    spy={true}
+    smooth={true}
+    offset={-64}
+    className="w-auto px-6 py-2 md:px-8 md:py-3 rounded-full text-sm md:text-base font-medium bg-[#ff585e] dark:bg-[#3663ff] text-white hover:bg-[#e04a50] dark:hover:bg-[#2a4fd6] shadow-lg hover:shadow-xl hover:scale-105 transform transition-all duration-300 cursor-pointer flex items-center justify-center"
+  >
+    Servicios
+  </Link>
 
-                <Link
-                  to="contact"
-                  spy={true}
-                  smooth={true}
-                  offset={-64}
-                  className="w-full sm:w-auto px-6 py-3 rounded-full text-sm md:text-base font-medium border-2 border-[#ff585e] dark:border-[#3663ff] hover:bg-[#ff585e] dark:hover:bg-[#3663ff] text-center"
-                >
-                  Contáctanos
-                </Link>
-              </motion.div>
+  {/* Botón de Contáctanos */}
+  <Link
+    to="contact"
+    spy={true}
+    smooth={true}
+    offset={-64}
+    className="w-auto px-6 py-2 md:px-8 md:py-3 rounded-full text-sm md:text-base font-medium border-2 border-[#ff585e] dark:border-[#3663ff] text-[#ff585e] dark:text-[#3663ff] hover:bg-[#ff585e] dark:hover:bg-[#3663ff] hover:text-white dark:hover:text-white hover:scale-105 transform transition-all duration-300 cursor-pointer flex items-center justify-center"
+  >
+    Contáctanos
+  </Link>
+</motion.div>
+
             </div>
           </motion.div>
         </div>
