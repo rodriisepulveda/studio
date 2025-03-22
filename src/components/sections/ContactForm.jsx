@@ -107,9 +107,11 @@ const ContactForm = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-8 md:mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Contáctanos</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Transforma tu idea en realidad
+          </h2>
           <p className="text-base md:text-lg text-gray-600 dark:text-gray-300">
-            ¿Tienes un proyecto en mente? Aquí estamos para ayudarte.
+            Estamos listos para escucharte. Cuéntanos sobre tu proyecto y trabajemos juntos para hacerlo realidad.
           </p>
         </motion.div>
 
@@ -258,7 +260,7 @@ const ContactForm = () => {
                 {/* Información de contacto */}
                 <div className="mt-8 lg:mt-0">
                   <h3 className="text-xl md:text-2xl font-semibold mb-6 text-center lg:text-left">
-                    Información de Contacto
+                    ¿Prefieres otro canal? ¡Escríbenos!
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 md:gap-6">
                     {/* Instagram */}
@@ -274,7 +276,7 @@ const ContactForm = () => {
                       </div>
                       <div className="flex-1 min-w-0">
                         <h4 className="font-medium text-sm md:text-base truncate">Instagram</h4>
-                        <p className="text-gray-600 dark:text-gray-300 text-sm truncate">@lacrinoide</p>
+                        <p className="text-gray-600 dark:text-gray-300 text-sm truncate">Inspírate con nuestro trabajo</p>
                       </div>
                     </a>
 
@@ -291,7 +293,7 @@ const ContactForm = () => {
                       </div>
                       <div className="flex-1 min-w-0">
                         <h4 className="font-medium text-sm md:text-base truncate">Facebook</h4>
-                        <p className="text-gray-600 dark:text-gray-300 text-sm truncate">Lacrinoide</p>
+                        <p className="text-gray-600 dark:text-gray-300 text-sm truncate">Únete a nuestra comunidad</p>
                       </div>
                     </a>
 
@@ -308,7 +310,7 @@ const ContactForm = () => {
                       </div>
                       <div className="flex-1 min-w-0">
                         <h4 className="font-medium text-sm md:text-base truncate">WhatsApp</h4>
-                        <p className="text-gray-600 dark:text-gray-300 text-sm truncate">+54 11 1234-5678</p>
+                        <p className="text-gray-600 dark:text-gray-300 text-sm truncate">Chatea con nosotros ahora</p>
                       </div>
                     </a>
 
@@ -323,7 +325,7 @@ const ContactForm = () => {
                       </div>
                       <div className="flex-1 min-w-0">
                         <h4 className="font-medium text-sm md:text-base truncate">Email</h4>
-                        <p className="text-gray-600 dark:text-gray-300 text-sm truncate">contacto@lacrinoide.com</p>
+                        <p className="text-gray-600 dark:text-gray-300 text-sm truncate">Escríbenos tus ideas</p>
                       </div>
                     </a>
                   </div>

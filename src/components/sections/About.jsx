@@ -90,12 +90,12 @@ const About = () => {
               {
                 icon: <RiTeamLine className="w-8 h-8 text-white" />, 
                 title: "Experiencia", 
-                description: "Nuestro equipo cuenta con años de experiencia en desarrollo web y móvil."
+                description: "Garantizamos un servicio de calidad, robusto, eficiente y un equipo de trabajo altamente capacitado."
               },
               {
                 icon: <RiShieldCheckLine className="w-8 h-8 text-white" />, 
                 title: "Calidad", 
-                description: "Nos comprometemos a entregar productos de alta calidad que superen las expectativas."
+                description: "Colaboramos estrechamente con el cliente en cada etapa del proceso, asegurando un producto final que no solo cumpla, sino que supere tus expectativas."
               },
             ].map((feature, index) => (
               <motion.div

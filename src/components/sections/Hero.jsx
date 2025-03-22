@@ -17,7 +17,7 @@ import pexelsPhoto11813187 from '../../assets/imgs/hero/pexels-photo-11813187.jp
 const Hero = () => {
   const words = [
     {
-      text: "",
+      text: "PVS",
       className: "text-[#ff585e] dark:text-[#3663ff] font-black",
     }
   ];

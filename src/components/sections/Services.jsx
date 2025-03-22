@@ -14,9 +14,10 @@ const Services = () => {
         databases: ["SQL Server", "Oracle", "MySQL"]
       },
       whenToChoose: [
-        "Si necesitas una presencia profesional en internet",
-        "Quieres vender productos o servicios online",
-        "Requieres un sistema de gestión empresarial"
+        "Necesitás un sitio web profesional y confiable.",
+        "Queres vender más con una tienda online ágil.",
+        "Buscas automatizar y optimizar tu negocio.",
+        "Queres atraer clientes con una experiencia digital única."
       ]
     },
     {
@@ -32,7 +33,8 @@ const Services = () => {
       whenToChoose: [
         "Si necesitas una app para tus clientes",
         "Quieres ofrecer servicios móviles",
-        "Necesitas acceso offline a funcionalidades"
+        "Necesitas acceso offline a funcionalidades",
+        "Queres una app para tu negocio"
       ]
     },
     {
@@ -46,9 +48,10 @@ const Services = () => {
         databases: ["Mantenimiento DB", "Optimización", "Backups"]
       },
       whenToChoose: [
-        "Si ya tienes un sitio web que necesita mantenimiento",
-        "Quieres mejorar el rendimiento de tu plataforma",
-        "Necesitas actualizaciones de seguridad"
+        "Si ya tenés un sitio web que necesita mantenimiento",
+        "Querés mejorar el rendimiento de tu plataforma",
+        "Necesitás actualizaciones de seguridad",
+        "Soporte personalizado"
       ]
     },
     {
@@ -62,9 +65,10 @@ const Services = () => {
         databases: ["Modelado de Datos", "Optimización de DB"]
       },
       whenToChoose: [
-        "Si necesitas una solución personalizada",
-        "Quieres optimizar procesos empresariales",
-        "Requieres integración entre sistemas"
+        "Para soluiciones tecnologicas 100% adaptadas a tus necesidades",
+        "Necesitas integrar sistemas de forma ágil y segura",
+        "Si buscas optimizar procesos y reducir costos operativos",
+        "Para una arquitectura escalable y mantenible"
       ]
     }
   ];

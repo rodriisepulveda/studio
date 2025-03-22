@@ -25,14 +25,16 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // Verificar el tema guardado o preferencia del sistema
+    // Verificar el tema guardado
     const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
     if (savedTheme) {
+      // Si hay un tema guardado, aplicarlo
       document.documentElement.classList.add(savedTheme);
-    } else if (prefersDark) {
-      document.documentElement.classList.add('dark');
+    } else {
+      // Si no hay tema guardado, establecer el tema claro por defecto
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     }
   }, []);
 

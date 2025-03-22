@@ -92,7 +92,7 @@ const Footer = () => {
             className="space-y-3"
           >
             <h3 className="text-base font-semibold text-gray-900 dark:text-white">
-              Síguenos
+              Seguinos
             </h3>
             <div className="flex space-x-3">
               <a
