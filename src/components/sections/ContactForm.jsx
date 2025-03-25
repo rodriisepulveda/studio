@@ -265,7 +265,7 @@ const ContactForm = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 md:gap-6">
                     {/* Instagram */}
                     <a
-                      href="https://instagram.com/lacrinoide"
+                      href="https://instagram.com/"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Síguenos en Instagram"
@@ -282,7 +282,7 @@ const ContactForm = () => {
 
                     {/* Facebook */}
                     <a
-                      href="https://facebook.com/lacrinoide"
+                      href="https://www.facebook.com/profile.php?id=61574237145694"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Síguenos en Facebook"
@@ -299,7 +299,7 @@ const ContactForm = () => {
 
                     {/* WhatsApp */}
                     <a
-                      href="https://wa.me/541112345678"
+                      href="https://wa.me/5492995757428"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Contáctanos por WhatsApp"
@@ -316,7 +316,7 @@ const ContactForm = () => {
 
                     {/* Email */}
                     <a
-                      href="mailto:contacto@lacrinoide.com"
+                      href="mailto:facupreiss@gmail.com"
                       aria-label="Envíanos un correo electrónico"
                       className="flex items-center space-x-4 p-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl transition-all hover:scale-105 transform duration-300"
                     >
