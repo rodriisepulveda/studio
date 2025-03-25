@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /       # Permite rastrear todo el sitio
+Disallow: /api/  # Bloquea endpoints sensibles
+Disallow: /private/  # Rutas privadas (si existen)
+Disallow: /admin/    # Panel de administración
+
+# Opcional: Limita frecuencia de rastreo
+Crawl-delay: 2
+
+# Cuando tengas dominio, añade:
+# Sitemap: https://tudominio.com/sitemap.xml
