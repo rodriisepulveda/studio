@@ -1,9 +1,10 @@
 "use client";
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Link } from "react-scroll";
-import ThemeSwitch from "../ui/theme-switch";
+import { FiMenu, FiX } from "react-icons/fi";
 
 const sections = [
+  { id: "hero", label: "Inicio", offset: -80 },
   { id: "about", label: "Quiénes Somos", offset: -80 },
   { id: "services", label: "Servicios", offset: -80 },
   { id: "contact", label: "Contacto", offset: -80 }
@@ -11,8 +12,23 @@ const sections = [
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("");
-  const [isVisible, setIsVisible] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const sectionRefs = useRef({});
+  const navbarRef = useRef(null);
+
+  // Cerrar el menú al hacer clic fuera de él
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navbarRef.current && !navbarRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     sections.forEach(({ id }) => {
@@ -24,14 +40,8 @@ const Navbar = () => {
     clearTimeout(window.scrollDebounce);
     window.scrollDebounce = setTimeout(() => {
       const scrollPosition = window.scrollY;
-      const aboutSection = sectionRefs.current["about"];
-
-      if (aboutSection) {
-        const aboutTop = aboutSection.offsetTop;
-        setIsVisible(scrollPosition >= aboutTop - 100);
-      }
-
       let currentSection = "";
+
       sections.forEach(({ id }) => {
         const element = sectionRefs.current[id];
         if (element) {
@@ -39,7 +49,11 @@ const Navbar = () => {
           const elementTop = top + window.scrollY;
           const elementBottom = bottom + window.scrollY;
 
-          if (scrollPosition >= elementTop - 100 && scrollPosition <= elementBottom) {
+          if (id === "hero") {
+            if (scrollPosition < elementBottom - 100) {
+              currentSection = id;
+            }
+          } else if (scrollPosition >= elementTop - 100 && scrollPosition <= elementBottom) {
             currentSection = id;
           }
         }
@@ -64,35 +78,75 @@ const Navbar = () => {
   }, [handleScroll]);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      isVisible ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md opacity-100"
-               : "opacity-0 pointer-events-none"
-    }`}>
+    <nav 
+      ref={navbarRef}
+      className="fixed top-0 left-0 right-0 z-[1000] bg-gray-900/80 backdrop-blur-md shadow-md"
+    >
       <div className="container mx-auto px-4 relative">
-        <div className="flex justify-center py-4">
-          {sections.map((section) => (
-            <Link
-            key={section.id}
-            to={section.id}
-            spy={true}
-            smooth={true}
-            duration={800}
-            offset={section.offset}
-            aria-label={`Ir a la sección ${section.label}`} // Agregar aria-label
-            className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300
-                        hover:bg-white/20 dark:hover:bg-gray-800/40 cursor-pointer
-                        ${activeSection === section.id
-                          ? "bg-white/30 dark:bg-gray-800/40 text-gray-900 dark:text-white shadow-md"
-                          : "text-gray-600 dark:text-gray-400"
-                        }`}
+        <div className="flex justify-between items-center py-4">
+          {/* Botón de hamburguesa para móviles */}
+          <button
+            className="md:hidden p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 text-white"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Menú de navegación"
           >
-            {section.label}
-          </Link>
-          ))}
+            {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+          </button>
+
+          {/* Texto PVS (solo visible en móviles) */}
+          <div className="md:hidden text-[#3663ff] font-bold text-xl mr-2">
+            PVS
+          </div>
+
+          {/* Menú para desktop (oculto en móviles) */}
+          <div className="hidden md:flex justify-center flex-1">
+            {sections.map((section) => (
+              <Link
+                key={section.id}
+                to={section.id}
+                spy={true}
+                smooth={true}
+                duration={800}
+                offset={section.offset}
+                aria-label={`Ir a ${section.label}`}
+                className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300
+                          hover:bg-gray-800/40 cursor-pointer text-white
+                          ${activeSection === section.id
+                            ? "bg-gray-800/40 text-white shadow-md"
+                            : "text-gray-400"
+                          }`}
+              >
+                {section.label}
+              </Link>
+            ))}
+          </div>
         </div>
-        <div className="absolute right-4 top-1/2 -translate-y-1/2">
-          <ThemeSwitch />
-        </div>
+
+        {/* Menú móvil (solo visible cuando isOpen es true) */}
+        {isOpen && (
+          <div className="md:hidden pb-4 flex flex-col space-y-2">
+            {sections.map((section) => (
+              <Link
+                key={section.id}
+                to={section.id}
+                spy={true}
+                smooth={true}
+                duration={800}
+                offset={section.offset}
+                onClick={() => setIsOpen(false)}
+                aria-label={`Ir a ${section.label}`}
+                className={`px-4 py-3 text-sm font-medium rounded-lg transition-all duration-300
+                          hover:bg-gray-800/40 cursor-pointer text-white
+                          ${activeSection === section.id
+                            ? "bg-gray-800/40 text-white shadow-md"
+                            : "text-gray-400"
+                          }`}
+              >
+                {section.label}
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </nav>
   );
