@@ -25,20 +25,24 @@ const Hero = () => {
 
   // Array de imágenes
   const heroImages = [
-    { src: meeting1, alt: "Reunión de equipo" },
-    { src: meeting2, alt: "Equipo trabajando" },
-    { src: meeting3, alt: "Desarrolladores colaborando" },
-    { src: meeting4, alt: "Presentación de proyecto" },
-    { src: meeting5, alt: "Análisis de datos" },
-    { src: meeting6, alt: "Planificación de proyecto" },
-    { src: meeting7, alt: "Trabajo en aplicación" },
-    { src: pexelsPhoto3726363, alt: "Equipo en entorno moderno" },
-    { src: pexelsPhoto11813187, alt: "Discusión de soluciones" },
+    { src: meeting1, alt: "Reunión de equipo en oficina moderna" },
+    { src: meeting2, alt: "Equipo de desarrollo trabajando en conjunto" },
+    { src: meeting3, alt: "Programadores colaborando en código" },
+    { src: meeting4, alt: "Presentación de proyecto digital" },
+    { src: meeting5, alt: "Analista revisando datos en pantalla" },
+    { src: meeting6, alt: "Planificación estratégica de proyecto" },
+    { src: meeting7, alt: "Desarrollador trabajando en aplicación móvil" },
+    { src: pexelsPhoto3726363, alt: "Equipo tecnológico en espacio de trabajo" },
+    { src: pexelsPhoto11813187, alt: "Profesionales discutiendo soluciones digitales" },
   ];
 
   return (
-    <section id="hero" className="min-h-screen relative overflow-hidden flex items-center">
-      <h1 className="sr-only">PVS - Soluciones digitales para tu negocio</h1>
+    <section 
+      id="hero" 
+      className="min-h-screen relative overflow-hidden flex items-center"
+      aria-labelledby="hero-heading"
+    >
+      <h1 id="hero-heading" className="sr-only">PVS - Soluciones digitales para tu negocio</h1>
 
       {/* Fondo con slider */}
       <div className="absolute inset-0 z-0">
@@ -46,13 +50,14 @@ const Hero = () => {
           images={heroImages}
           interval={10000}
           transitionEffect="fade"
+          aria-hidden="true"
         />
       </div>
 
       {/* Overlay con opacidad sobre el slider */}
-      <div className="absolute inset-0 bg-gray-900/80 z-1"></div>
+      <div className="absolute inset-0 bg-gray-900/80 z-1" aria-hidden="true"></div>
 
-      {/* Contenido principal alineado a la izquierda sin fondo */}
+      {/* Contenido principal */}
       <div className="container mx-auto px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -65,15 +70,16 @@ const Hero = () => {
             words={words} 
             className="!text-[3rem] sm:!text-[4rem] md:!text-[5rem] !font-black !leading-[0.9] text-left"
             cursorClassName="!bg-[#3663ff]"
+            aria-label="PVS Soluciones Digitales"
           />
 
           {/* Texto descriptivo */}
           <div className="space-y-4 mt-6 text-left">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-100">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
               Soluciones digitales hechas a tu medida
             </h2>
             <p className="text-base sm:text-lg text-gray-300">
-              Desarrollo web, aplicaciones móviles y mantenimiento digital.
+              Desarrollo web, aplicaciones móviles y mantenimiento digital profesional.
             </p>
 
             {/* Botones */}
@@ -83,8 +89,9 @@ const Hero = () => {
                 spy={true}
                 smooth={true}
                 offset={-64}
-                aria-label="Ver nuestros servicios"
-                className="px-6 py-3 rounded-full text-sm sm:text-base font-medium bg-[#3663ff] text-white hover:scale-105 transition-transform cursor-pointer flex items-center justify-center"
+                href="#services"
+                aria-label="Ver nuestros servicios de desarrollo"
+                className="px-6 py-3 rounded-full text-sm sm:text-base font-medium bg-[#3663ff] text-white hover:scale-105 transition-transform cursor-pointer flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-[#3663ff] focus:ring-offset-2 focus:ring-offset-gray-900"
               >
                 Servicios
               </Link>
@@ -94,8 +101,9 @@ const Hero = () => {
                 spy={true}
                 smooth={true}
                 offset={-64}
+                href="#contact"
                 aria-label="Contactar a nuestro equipo"
-                className="px-6 py-3 rounded-full text-sm sm:text-base font-medium border-2 border-white text-white hover:bg-white hover:text-[#3663ff] transition-colors cursor-pointer"
+                className="px-6 py-3 rounded-full text-sm sm:text-base font-medium border-2 border-white text-white hover:bg-white hover:text-[#3663ff] transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#3663ff] focus:ring-offset-2 focus:ring-offset-gray-900"
               >
                 Contáctanos
               </Link>
@@ -105,7 +113,7 @@ const Hero = () => {
       </div>
 
       {/* Degradado de transición */}
-      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-gray-900 via-gray-900/80 to-transparent z-5"></div>
+      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-gray-900 via-gray-900/80 to-transparent z-5" aria-hidden="true"></div>
 
       {/* Flecha de scroll */}
       <motion.div 
@@ -118,16 +126,20 @@ const Hero = () => {
           to="about"
           spy={true}
           smooth={true}
-          className="text-gray-300 cursor-pointer"
+          href="#about"
+          className="text-gray-300 cursor-pointer focus:outline-none"
+          aria-label="Desplazarse a la sección siguiente"
         >
           <svg
             className="w-8 h-8 animate-bounce"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
+            aria-hidden="true"
           >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
           </svg>
+          <span className="sr-only">Desplazarse hacia abajo</span>
         </Link>
       </motion.div>
     </section>
