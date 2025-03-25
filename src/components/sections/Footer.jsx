@@ -96,22 +96,13 @@ const Footer = () => {
             </h3>
             <div className="flex space-x-3">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/profile.php?id=61574237145694"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 dark:text-gray-300 hover:text-[#ff585e] dark:hover:text-[#3663ff] transition-colors"
                 aria-label="Facebook"
               >
                 <FaFacebook className="w-5 h-5" />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 dark:text-gray-300 hover:text-[#ff585e] dark:hover:text-[#3663ff] transition-colors"
-                aria-label="Twitter"
-              >
-                <FaTwitter className="w-5 h-5" />
               </a>
               <a
                 href="https://instagram.com"
@@ -123,7 +114,7 @@ const Footer = () => {
                 <FaInstagram className="w-5 h-5" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/facundo-preiss-4b0227246/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 dark:text-gray-300 hover:text-[#ff585e] dark:hover:text-[#3663ff] transition-colors"
@@ -147,13 +138,13 @@ const Footer = () => {
             </h3>
             <ul className="space-y-1">
               <li className="text-xs text-gray-600 dark:text-gray-300">
-                Email: info@pvs.com
+                Email: ---
               </li>
               <li className="text-xs text-gray-600 dark:text-gray-300">
-                Teléfono: +123 456 789
+                Teléfono: +54 9 299 575-7428
               </li>
               <li className="text-xs text-gray-600 dark:text-gray-300">
-                Dirección: Calle Falsa 123, Ciudad, País
+                Dirección: Cipolletti, Río Negro, Argentina
               </li>
             </ul>
           </motion.div>
