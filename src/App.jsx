@@ -34,7 +34,7 @@ function App() {
     } else {
       // Si no hay tema guardado, establecer el tema claro por defecto
       document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
+      localStorage.setItem('theme', 'dark');
     }
   }, []);
 
