@@ -138,7 +138,7 @@ const Footer = () => {
             </h3>
             <ul className="space-y-1">
               <li className="text-xs text-gray-600 dark:text-gray-300">
-                Email: ---
+                Email: facupreiss@gmail.com
               </li>
               <li className="text-xs text-gray-600 dark:text-gray-300">
                 Teléfono: +54 9 299 575-7428

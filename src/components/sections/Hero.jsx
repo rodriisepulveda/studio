@@ -19,7 +19,7 @@ const Hero = () => {
   const words = [
     {
       text: "PVS",
-      className: "txt-[#eff585e] dark:text-[#3663ff] font-black",
+      className: "text-[#3663ff] font-black",
     }
   ];
 
@@ -50,7 +50,7 @@ const Hero = () => {
       </div>
 
       {/* Overlay con opacidad sobre el slider */}
-      <div className="absolute inset-0 bg-gray-900/60 dark:bg-gray-900/80 z-1"></div>
+      <div className="absolute inset-0 bg-gray-900/80 z-1"></div>
 
       {/* Contenido principal alineado a la izquierda sin fondo */}
       <div className="container mx-auto px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 z-10">
@@ -64,36 +64,38 @@ const Hero = () => {
           <TypewriterEffectSmooth 
             words={words} 
             className="!text-[3rem] sm:!text-[4rem] md:!text-[5rem] !font-black !leading-[0.9] text-left"
-            cursorClassName="!bg-[#ff585e] dark:!bg-[#3663ff]"
+            cursorClassName="!bg-[#3663ff]"
           />
 
           {/* Texto descriptivo */}
           <div className="space-y-4 mt-6 text-left">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white dark:text-gray-100">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-100">
               Soluciones digitales hechas a tu medida
             </h2>
-            <p className="text-base sm:text-lg text-gray-200 dark:text-gray-300">
+            <p className="text-base sm:text-lg text-gray-300">
               Desarrollo web, aplicaciones móviles y mantenimiento digital.
             </p>
 
             {/* Botones */}
             <div className="flex flex-wrap gap-4 pt-6">
-            <Link
-  to="services"
-  spy={true}
-  smooth={true}
-  offset={-64}
-  className="px-6 py-3 rounded-full text-sm sm:text-base font-medium bg-[#ff585e] dark:bg-[#3663ff] text-white hover:scale-105 transition-transform cursor-pointer flex items-center justify-center"
->
-  Servicios
-</Link>
-              
+              <Link
+                to="services"
+                spy={true}
+                smooth={true}
+                offset={-64}
+                aria-label="Ver nuestros servicios"
+                className="px-6 py-3 rounded-full text-sm sm:text-base font-medium bg-[#3663ff] text-white hover:scale-105 transition-transform cursor-pointer flex items-center justify-center"
+              >
+                Servicios
+              </Link>
+
               <Link
                 to="contact"
                 spy={true}
                 smooth={true}
                 offset={-64}
-                className="px-6 py-3 rounded-full text-sm sm:text-base font-medium border-2 border-white text-white hover:bg-white hover:text-[#ff585e] dark:hover:text-[#3663ff] transition-colors cursor-pointer"
+                aria-label="Contactar a nuestro equipo"
+                className="px-6 py-3 rounded-full text-sm sm:text-base font-medium border-2 border-white text-white hover:bg-white hover:text-[#3663ff] transition-colors cursor-pointer"
               >
                 Contáctanos
               </Link>
@@ -103,7 +105,7 @@ const Hero = () => {
       </div>
 
       {/* Degradado de transición */}
-      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent z-5"></div>
+      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-gray-900 via-gray-900/80 to-transparent z-5"></div>
 
       {/* Flecha de scroll */}
       <motion.div 
@@ -113,20 +115,20 @@ const Hero = () => {
         transition={{ delay: 1 }}
       >
         <Link
-  to="about"
-  spy={true}
-  smooth={true}
-  className="text-[#ff585e] dark:text-gray-300 cursor-pointer" // Color corregido aquí
->
-  <svg
-    className="w-8 h-8 animate-bounce"
-    fill="none"
-    stroke="currentColor" // Esto hereda el color del padre (Link)
-    viewBox="0 0 24 24"
-  >
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-  </svg>
-</Link>
+          to="about"
+          spy={true}
+          smooth={true}
+          className="text-gray-300 cursor-pointer"
+        >
+          <svg
+            className="w-8 h-8 animate-bounce"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+          </svg>
+        </Link>
       </motion.div>
     </section>
   );

@@ -118,18 +118,21 @@ const TeamSlider = ({ team }) => {
           </motion.div>
 
           <div className="flex gap-4 pt-16 md:pt-6">
-            <button
-              onClick={handlePrev}
-              className="h-10 w-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group hover:bg-[#ff585e] dark:hover:bg-[#3663ff] transition-colors"
-            >
-              <RiArrowLeftLine className="h-6 w-6 text-gray-600 dark:text-neutral-400 group-hover:text-white transition-colors" />
-            </button>
-            <button
-              onClick={handleNext}
-              className="h-10 w-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group hover:bg-[#ff585e] dark:hover:bg-[#3663ff] transition-colors"
-            >
-              <RiArrowRightLine className="h-6 w-6 text-gray-600 dark:text-neutral-400 group-hover:text-white transition-colors" />
-            </button>
+          <button
+  onClick={handlePrev}
+  aria-label="Anterior" // O "Ir a la diapositiva anterior" si es un carrusel
+  className="h-10 w-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group hover:bg-[#ff585e] dark:hover:bg-[#3663ff] transition-colors"
+>
+  <RiArrowLeftLine className="h-6 w-6 text-gray-600 dark:text-neutral-400 group-hover:text-white transition-colors" />
+</button>
+
+<button
+  onClick={handleNext}
+  aria-label="Siguiente" // O "Ir a la diapositiva siguiente" si es un carrusel
+  className="h-10 w-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group hover:bg-[#ff585e] dark:hover:bg-[#3663ff] transition-colors"
+>
+  <RiArrowRightLine className="h-6 w-6 text-gray-600 dark:text-neutral-400 group-hover:text-white transition-colors" />
+</button>
           </div>
         </div>
       </div>

@@ -81,6 +81,7 @@ const Navbar = () => {
     <nav 
       ref={navbarRef}
       className="fixed top-0 left-0 right-0 z-[1000] bg-gray-900/80 backdrop-blur-md shadow-md"
+      aria-label="Navegación principal"
     >
       <div className="container mx-auto px-4 relative">
         <div className="flex justify-between items-center py-4">
@@ -88,15 +89,30 @@ const Navbar = () => {
           <button
             className="md:hidden p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 text-white"
             onClick={() => setIsOpen(!isOpen)}
-            aria-label="Menú de navegación"
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
           >
-            {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+            {isOpen ? (
+              <>
+                <FiX size={24} aria-hidden="true" />
+                <span className="sr-only">Cerrar menú</span>
+              </>
+            ) : (
+              <>
+                <FiMenu size={24} aria-hidden="true" />
+                <span className="sr-only">Abrir menú</span>
+              </>
+            )}
           </button>
 
           {/* Texto PVS (solo visible en móviles) */}
-          <div className="md:hidden text-[#3663ff] font-bold text-xl mr-2">
+          <a 
+            href="#hero" 
+            className="md:hidden text-[#3663ff] font-bold text-xl mr-2"
+            aria-label="PVS - Volver al inicio"
+          >
             PVS
-          </div>
+          </a>
 
           {/* Menú para desktop (oculto en móviles) */}
           <div className="hidden md:flex justify-center flex-1">
@@ -108,6 +124,7 @@ const Navbar = () => {
                 smooth={true}
                 duration={800}
                 offset={section.offset}
+                href={`#${section.id}`}  // Para SEO
                 aria-label={`Ir a ${section.label}`}
                 className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300
                           hover:bg-gray-800/40 cursor-pointer text-white
@@ -122,31 +139,33 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Menú móvil (solo visible cuando isOpen es true) */}
-        {isOpen && (
-          <div className="md:hidden pb-4 flex flex-col space-y-2">
-            {sections.map((section) => (
-              <Link
-                key={section.id}
-                to={section.id}
-                spy={true}
-                smooth={true}
-                duration={800}
-                offset={section.offset}
-                onClick={() => setIsOpen(false)}
-                aria-label={`Ir a ${section.label}`}
-                className={`px-4 py-3 text-sm font-medium rounded-lg transition-all duration-300
-                          hover:bg-gray-800/40 cursor-pointer text-white
-                          ${activeSection === section.id
-                            ? "bg-gray-800/40 text-white shadow-md"
-                            : "text-gray-400"
-                          }`}
-              >
-                {section.label}
-              </Link>
-            ))}
-          </div>
-        )}
+        {/* Menú móvil */}
+        <div 
+          id="mobile-menu"
+          className={`md:hidden pb-4 flex flex-col space-y-2 ${isOpen ? 'block' : 'hidden'}`}
+        >
+          {sections.map((section) => (
+            <Link
+              key={section.id}
+              to={section.id}
+              spy={true}
+              smooth={true}
+              duration={800}
+              offset={section.offset}
+              href={`#${section.id}`}  // Para SEO
+              onClick={() => setIsOpen(false)}
+              aria-label={`Ir a ${section.label}`}
+              className={`px-4 py-3 text-sm font-medium rounded-lg transition-all duration-300
+                        hover:bg-gray-800/40 cursor-pointer text-white
+                        ${activeSection === section.id
+                          ? "bg-gray-800/40 text-white shadow-md"
+                          : "text-gray-400"
+                        }`}
+            >
+              {section.label}
+            </Link>
+          ))}
+        </div>
       </div>
     </nav>
   );
