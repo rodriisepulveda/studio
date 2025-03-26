@@ -17,7 +17,6 @@ const Services = () => {
         "Tener un sitio web profesional y confiable.",
         "Vender más con una tienda online ágil.",
         "Automatizar y optimizar tu negocio.",
-        "Atraer clientes con una experiencia digital única."
       ]
     },
     {
@@ -67,7 +66,6 @@ const Services = () => {
         "Soluciones tecnológicas 100% adaptadas a tus necesidades",
         "Integrar sistemas de forma ágil y segura",
         "Optimizar procesos y reducir costos operativos",
-        "Una arquitectura escalable y mantenible"
       ]
     }
   ];
