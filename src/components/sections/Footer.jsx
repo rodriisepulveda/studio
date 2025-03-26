@@ -114,7 +114,7 @@ const Footer = () => {
             <address className="not-italic">
               <ul className="space-y-1">
                 <li className="text-xs text-gray-300">
-                  <a href="mailto:facupreiss@gmail.com">facupreiss@gmail.com</a>
+                  <a href="mailto:pvsestudio@gmail.com">pvsestudio@gmail.com</a>
                 </li>
                 <li className="text-xs text-gray-300">
                   <a href="tel:+542995757428">+54 299 575-7428</a>

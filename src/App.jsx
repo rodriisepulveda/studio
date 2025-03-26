@@ -9,14 +9,9 @@ import Footer from "./components/sections/Footer";
 
 function App() {
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    
-    if (savedTheme) {
-      document.documentElement.classList.add(savedTheme);
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
+    // Siempre establece el tema oscuro
+    document.documentElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
   }, []);
 
   return (

@@ -72,7 +72,7 @@ const ContactForm = () => {
       const selectedCountryData = countries.find(country => country.code === selectedCountry);
       const fullPhone = `${selectedCountryData.dialCode} ${formData.phone}`;
       
-      const toEmails = 'facundo.preiss@davinci.edu.ar,rodrigo.sepulveda@davinci.edu.ar,rodris371@gmail.com';
+      const toEmails = 'pvsestudio@gmail.com';
 
       await emailjs.send(
         EMAIL_CONFIG.SERVICE_ID,
