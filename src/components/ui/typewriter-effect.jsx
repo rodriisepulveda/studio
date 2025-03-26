@@ -46,24 +46,24 @@ export const TypewriterEffectSmooth = ({
       
       {/* Cursor con parpadeo suave */}
       <motion.span
-        initial={{ opacity: 0 }}
-        animate={{ 
-          opacity: [0, 1, 0], // Transición suave 0→1→0
-        }}
-        transition={{ 
-          duration: 1.2,
-          ease: "easeInOut", // Suaviza la transición
-          repeat: Infinity,
-        }}
-        className={cn(
-          "inline-block w-[4px] rounded-sm ml-1",
-          cursorClassName
-        )}
-        style={{
-          height: "1em",
-          transform: "translateY(0.07em)",
-        }}
-      />
+  initial={{ opacity: 0 }}
+  animate={{ 
+    opacity: [0, 1, 0],
+  }}
+  transition={{ 
+    duration: 1.2,
+    ease: "easeInOut",
+    repeat: Infinity,
+  }}
+  className={cn(
+    "inline-block w-[4px] rounded-sm ml-1",
+    "h-[1.4em] md:h-[1.3em] sm:h-[1.8em] lg:h-[1.7em]", // Mobile: 0.8em, Desktop: 1em (a partir de sm:640px)
+    cursorClassName
+  )}
+  style={{
+    transform: "translateY(0.07em)",
+  }}
+/>
     </div>
   );
 };
