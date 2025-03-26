@@ -5,7 +5,7 @@ const Services = () => {
   const services = [
     {
       title: "Desarrollo Web",
-      description: "Creamos sitios web modernos y responsivos con integración de bases de datos.",
+      description: "Diseñamos y desarrollamos sitios web adaptables con integración de bases de datos para gestionar productos, clientes o contenido.",
       icon: <RiCodeSSlashLine className="w-6 h-6" />, 
       summary: "Creación de sitios web empresariales, tiendas online y plataformas interactivas.",
       details: {
@@ -14,27 +14,27 @@ const Services = () => {
         databases: ["SQL Server", "Oracle", "MySQL"]
       },
       whenToChoose: [
-        "Necesitás un sitio web profesional y confiable.",
-        "Queres vender más con una tienda online ágil.",
-        "Buscas automatizar y optimizar tu negocio.",
-        "Queres atraer clientes con una experiencia digital única."
+        "Tener un sitio web profesional y confiable.",
+        "Vender más con una tienda online ágil.",
+        "Automatizar y optimizar tu negocio.",
+        "Atraer clientes con una experiencia digital única."
       ]
     },
     {
       title: "Desarrollo Mobile",
-      description: "Creamos aplicaciones móviles nativas y multiplataforma para iOS y Android.",
+      description: "Desarrollamos aplicaciones móviles nativas y multiplataforma para iOS y Android que gestionan procesos clave de tu negocio.",
       icon: <RiSmartphoneLine className="w-6 h-6" />,
       summary: "Apps intuitivas y optimizadas para ofrecer la mejor experiencia de usuario.",
       details: {
         skills: ["Apps Android", "Integración APIs", "Optimización"],
-        technologies: ["React Native", "Android", "Java", "Kotlin"],
-        databases: ["SQLite", "Firebase", "MongoDB"]
+        technologies: ["React Native", "Android", "Java", "Kotlin", "Firebase"],
+        databases: ["SQLite", "MongoDB"]
       },
       whenToChoose: [
-        "Si necesitas una app para tus clientes",
-        "Quieres ofrecer servicios móviles",
-        "Necesitas acceso offline a funcionalidades",
-        "Queres una app para tu negocio"
+        "Tener una app para tus clientes",
+        "Ofrecer servicios móviles",
+        "Tener accesso offline a funcionalidades",
+        "Digitalizar tu negocio"
       ]
     },
     {
@@ -44,19 +44,18 @@ const Services = () => {
       summary: "Optimización, actualizaciones y seguridad de sitios web empresariales.",
       details: {
         skills: ["Optimización", "Gestión de versiones", "Seguridad Web"],
-        technologies: ["DevOps", "CI/CD", "Docker", "AWS"],
+        technologies: ["DevOps", "CI/CD", "Docker", "AWS", "Lighthouse", "OWASP"],
         databases: ["Mantenimiento DB", "Optimización", "Backups"]
       },
       whenToChoose: [
-        "Si ya tenés un sitio web que necesita mantenimiento",
-        "Querés mejorar el rendimiento de tu plataforma",
-        "Necesitás actualizaciones de seguridad",
-        "Soporte personalizado"
+        "Renovar un sitio web que necesita mantenimiento",
+        "Mejorar el rendimiento de tu plataforma",
+        "Mantener al día las actualizaciones de seguridad",
       ]
     },
     {
       title: "Diseño de Sistemas",
-      description: "Análisis y diseño de soluciones tecnológicas personalizadas.",
+      description: "Analizamos tus necesidades y diseñamos soluciones tecnológicas a medida para optimizar tus procesos.",
       icon: <RiLayoutGridLine className="w-6 h-6" />,
       summary: "Soluciones tecnológicas a medida con escalabilidad y optimización de procesos.",
       details: {
@@ -65,10 +64,10 @@ const Services = () => {
         databases: ["Modelado de Datos", "Optimización de DB"]
       },
       whenToChoose: [
-        "Para soluiciones tecnologicas 100% adaptadas a tus necesidades",
-        "Necesitas integrar sistemas de forma ágil y segura",
-        "Si buscas optimizar procesos y reducir costos operativos",
-        "Para una arquitectura escalable y mantenible"
+        "Soluciones tecnológicas 100% adaptadas a tus necesidades",
+        "Integrar sistemas de forma ágil y segura",
+        "Optimizar procesos y reducir costos operativos",
+        "Una arquitectura escalable y mantenible"
       ]
     }
   ];
