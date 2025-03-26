@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
-import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -76,11 +76,6 @@ const Footer = () => {
                   icon: FaFacebook,
                   url: "https://www.facebook.com/profile.php?id=61574237145694",
                   label: "Facebook"
-                },
-                {
-                  icon: FaInstagram,
-                  url: "https://instagram.com",
-                  label: "Instagram"
                 },
                 {
                   icon: FaLinkedin,

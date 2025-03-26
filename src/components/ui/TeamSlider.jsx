@@ -86,9 +86,6 @@ const TeamSlider = ({ team }) => {
             transition={{ duration: 0.2, ease: "easeInOut" }}
           >
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{team[active].name}</h3>
-            <p className="text-sm italic text-gray-500 dark:text-gray-400 mt-1">
-              "{team[active].nickname}"
-            </p>
             <p className="text-sm text-[#ff585e] dark:text-[#3663ff] mt-1">{team[active].role}</p>
             <motion.p className="text-lg text-gray-500 mt-8 dark:text-neutral-300">
               {team[active].description.split(" ").map((word, index) => (

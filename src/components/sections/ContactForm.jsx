@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import { EMAIL_CONFIG } from '../../config/email';
-import { RiInstagramLine, RiFacebookLine, RiWhatsappLine, RiMailLine } from 'react-icons/ri';
+import { RiFacebookLine, RiWhatsappLine, RiMailLine, RiLinkedinLine } from 'react-icons/ri';
 import ImageSlider from '../ui/ImageSlider';
 import toast from 'react-hot-toast';
 
@@ -265,18 +265,18 @@ const ContactForm = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 md:gap-6">
                     {/* Instagram */}
                     <a
-                      href="https://instagram.com/"
+                      href="https://www.linkedin.com/in/facundo-preiss-4b0227246/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="Síguenos en Instagram"
+                      aria-label="Síguenos en LinkedIn"
                       className="flex items-center space-x-4 p-3 hover:bg-gray-800 rounded-xl transition-all hover:scale-105"
                     >
                       <div className="w-10 h-10 md:w-12 md:h-12 bg-[#3663ff] rounded-full flex items-center justify-center flex-shrink-0">
-                        <RiInstagramLine className="w-5 h-5 md:w-6 md:h-6 text-white" aria-hidden="true" />
+                        <RiLinkedinLine className="w-5 h-5 md:w-6 md:h-6 text-white" aria-hidden="true" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h4 className="font-medium text-sm md:text-base truncate text-white">Instagram</h4>
-                        <p className="text-gray-300 text-sm truncate">Inspírate con nuestro trabajo</p>
+                        <h4 className="font-medium text-sm md:text-base truncate text-white">LinkedIn</h4>
+                        <p className="text-gray-300 text-sm truncate">Enterate de todo nuestro trabajo</p>
                       </div>
                     </a>
 
