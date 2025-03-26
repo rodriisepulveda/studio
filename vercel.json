@@ -6,7 +6,7 @@
         "use": "@vercel/static-build",
         "config": {
           "distDir": "dist",
-          "installCommand": "npm install --production=false"
+          "installCommand": "npm install --production=false && chmod +x node_modules/.bin/vite"
         }
       }
     ]
