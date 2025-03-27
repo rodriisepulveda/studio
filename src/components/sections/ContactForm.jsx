@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import { EMAIL_CONFIG } from '../../config/email';
@@ -69,19 +69,33 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
+      // Validaciones básicas anti-spam
+      if (!validateMessage(formData.message)) {
+        toast.error('El mensaje parece spam. Por favor, revisa el contenido.');
+        return;
+      }
+
       const selectedCountryData = countries.find(country => country.code === selectedCountry);
       const fullPhone = `${selectedCountryData.dialCode} ${formData.phone}`;
       
-      const toEmails = 'pvsestudio@gmail.com';
+      // Agregar timestamp y datos adicionales
+      const emailData = {
+        ...formData,
+        phone: fullPhone,
+        to_email: 'pvsestudio@gmail.com',
+        timestamp: new Date().toISOString(),
+        userAgent: navigator.userAgent,
+        // Datos para ayudar a identificar spam
+        referrer: document.referrer,
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        screenResolution: `${window.screen.width}x${window.screen.height}`,
+        language: navigator.language
+      };
 
       await emailjs.send(
         EMAIL_CONFIG.SERVICE_ID,
         EMAIL_CONFIG.TEMPLATE_ID,
-        {
-          ...formData,
-          phone: fullPhone,
-          to_email: toEmails
-        },
+        emailData,
         EMAIL_CONFIG.PUBLIC_KEY
       );
       
@@ -93,6 +107,70 @@ const ContactForm = () => {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  // Función para validar el contenido del mensaje
+  const validateMessage = (message) => {
+    // Detectar patrones de spam comunes
+    const spamPatterns = [
+      /http[s]?:\/\//i,                    // URLs
+      /\b(?:viagra|cialis|casino)\b/i,     // Palabras spam comunes
+      /[^\s]{30,}/,                        // Cadenas largas sin espacios
+      /(.)\1{4,}/,                         // Caracteres repetidos
+      /\b[A-Z\s]{20,}\b/,                  // TEXTO TODO EN MAYÚSCULAS
+      /\d{4,}/                             // Muchos números seguidos
+    ];
+
+    // Verificar patrones de spam
+    if (spamPatterns.some(pattern => pattern.test(message))) {
+      return false;
+    }
+
+    // Verificar proporción de enlaces
+    const urlCount = (message.match(/https?:\/\//g) || []).length;
+    if (urlCount > 0) {
+      return false;
+    }
+
+    // Verificar proporción de mayúsculas
+    const upperCount = message.replace(/[^A-Z]/g, '').length;
+    const totalChars = message.replace(/\s/g, '').length;
+    if (totalChars > 0 && upperCount / totalChars > 0.7) {
+      return false;
+    }
+
+    return true;
+  };
+
+  // Validaciones adicionales para el formulario
+  const validateForm = () => {
+    // Validar email
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!emailRegex.test(formData.email)) {
+      toast.error('Por favor, ingresa un email válido');
+      return false;
+    }
+
+    // Validar teléfono
+    const phoneDigits = formData.phone.replace(/\D/g, '');
+    if (phoneDigits.length < 8 || phoneDigits.length > 15) {
+      toast.error('Por favor, ingresa un número de teléfono válido');
+      return false;
+    }
+
+    // Validar nombre
+    if (formData.name.length < 3 || /\d/.test(formData.name)) {
+      toast.error('Por favor, ingresa un nombre válido');
+      return false;
+    }
+
+    // Validar mensaje
+    if (formData.message.length < 10) {
+      toast.error('El mensaje es demasiado corto');
+      return false;
+    }
+
+    return true;
   };
 
   return (
@@ -156,10 +234,13 @@ const ContactForm = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
+                        maxLength={50}
+                        placeholder="Tu nombre"
                         className="w-full px-4 py-2 rounded-xl border border-gray-600 
                                  bg-gray-800 text-white
                                  focus:ring-2 focus:ring-[#3663ff] focus:border-transparent"
                         aria-required="true"
+                        aria-label="Ingresa tu nombre completo"
                       />
                     </div>
 
@@ -227,40 +308,51 @@ const ContactForm = () => {
                         value={formData.message}
                         onChange={handleChange}
                         required
+                        maxLength={500}
                         rows="4"
+                        placeholder="Escribí tu mensaje acá (máximo 500 caracteres)"
                         className="w-full px-4 py-2 rounded-xl border border-gray-600 
                                  bg-gray-800 text-white
-                                 focus:ring-2 focus:ring-[#3663ff] focus:border-transparent"
+                                 focus:ring-2 focus:ring-[#3663ff] focus:border-transparent
+                                 resize-none"
                         aria-required="true"
+                        aria-label="Escribe tu mensaje"
                       />
+                      <div className="text-sm text-gray-400 text-right mt-1">
+                        {formData.message.length}/500 caracteres
+                      </div>
                     </div>
 
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      aria-label="Enviar mensaje de contacto"
-                      className={`w-full px-6 py-3 rounded-xl text-base font-medium bg-[#3663ff] text-white text-center
-                               ${isSubmitting ? 'opacity-75 cursor-not-allowed' : 'hover:bg-[#2a4fd1]'}`}
-                    >
-                      {isSubmitting ? (
-                        <span className="flex items-center justify-center">
-                          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                          </svg>
-                          Enviando...
-                        </span>
-                      ) : (
-                        'Enviar Mensaje'
-                      )}
-                    </button>
+                    <div>
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className={`w-full px-6 py-3 rounded-xl text-base font-medium 
+                                   bg-[#3663ff] text-white text-center transition-all duration-300
+                                   ${isSubmitting ? 'opacity-50 cursor-not-allowed' : 
+                                   'hover:bg-[#2a4fd1] hover:scale-[1.02]'}`}
+                        aria-label="Enviar mensaje"
+                      >
+                        {isSubmitting ? (
+                          <span className="flex items-center justify-center">
+                            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Enviando...
+                          </span>
+                        ) : (
+                          'Enviar Mensaje'
+                        )}
+                      </button>
+                    </div>
                   </form>
                 </div>
 
                 {/* Información de contacto */}
                 <div className="mt-8 lg:mt-0">
                   <h3 className="text-xl md:text-2xl font-semibold mb-6 text-center lg:text-left text-white">
-                    ¿Prefieres otro canal? ¡Escríbenos!
+                    ¿Preferis otro canal? ¡Escribinos!
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 md:gap-6">
                     {/* Instagram */}
@@ -285,7 +377,7 @@ const ContactForm = () => {
                       href="https://www.facebook.com/profile.php?id=61574237145694"
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="Síguenos en Facebook"
+                      aria-label="Seguinos en Facebook"
                       className="flex items-center space-x-4 p-3 hover:bg-gray-800 rounded-xl transition-all hover:scale-105"
                     >
                       <div className="w-10 h-10 md:w-12 md:h-12 bg-[#3663ff] rounded-full flex items-center justify-center flex-shrink-0">
@@ -293,7 +385,7 @@ const ContactForm = () => {
                       </div>
                       <div className="flex-1 min-w-0">
                         <h4 className="font-medium text-sm md:text-base truncate text-white">Facebook</h4>
-                        <p className="text-gray-300 text-sm truncate">Únete a nuestra comunidad</p>
+                        <p className="text-gray-300 text-sm truncate">Unite a nuestra comunidad</p>
                       </div>
                     </a>
 
@@ -310,13 +402,13 @@ const ContactForm = () => {
                       </div>
                       <div className="flex-1 min-w-0">
                         <h4 className="font-medium text-sm md:text-base truncate text-white">WhatsApp</h4>
-                        <p className="text-gray-300 text-sm truncate">Chatea con nosotros ahora</p>
+                        <p className="text-gray-300 text-sm truncate">Chateá con nosotros ahora</p>
                       </div>
                     </a>
 
                     {/* Email */}
                     <a
-                      href="mailto:facupreiss@gmail.com"
+                      href="mailto:pvsestudio@gmail.com"
                       aria-label="Envíanos un correo electrónico"
                       className="flex items-center space-x-4 p-3 hover:bg-gray-800 rounded-xl transition-all hover:scale-105"
                     >
@@ -325,7 +417,7 @@ const ContactForm = () => {
                       </div>
                       <div className="flex-1 min-w-0">
                         <h4 className="font-medium text-sm md:text-base truncate text-white">Email</h4>
-                        <p className="text-gray-300 text-sm truncate">Escríbenos tus ideas</p>
+                        <p className="text-gray-300 text-sm truncate">Escribinos tus ideas</p>
                       </div>
                     </a>
                   </div>
