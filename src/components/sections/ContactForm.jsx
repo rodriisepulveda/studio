@@ -82,7 +82,7 @@ const ContactForm = () => {
       const emailData = {
         ...formData,
         phone: fullPhone,
-        to_email: 'pvsestudio@gmail.com',
+        to_email: 'contacto@pvsestudio.com',
         timestamp: new Date().toISOString(),
         userAgent: navigator.userAgent,
         // Datos para ayudar a identificar spam
