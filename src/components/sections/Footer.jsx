@@ -117,7 +117,7 @@ const Footer = () => {
                   <a href="mailto:contacto@pvsestudio.com">contacto@pvsestudio.com</a>
                 </li>
                 <li className="text-xs text-gray-300">
-                  <a href="tel:+542995757428">+54 299 575-7428</a>
+                  <a href="tel:+542995757428">+54 9 299 623-0720</a>
                 </li>
                 <li className="text-xs text-gray-300">
                   Cipolletti, Río Negro, Argentina
