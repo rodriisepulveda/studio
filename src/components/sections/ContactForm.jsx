@@ -391,7 +391,7 @@ const ContactForm = () => {
 
                     {/* WhatsApp */}
                     <a
-                      href="https://wa.me/5492995757428"
+                      href="https://wa.me/5492996230720"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Contáctanos por WhatsApp"
