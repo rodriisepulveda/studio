@@ -408,7 +408,7 @@ const ContactForm = () => {
 
                     {/* Email */}
                     <a
-                      href="mailto:pvsestudio@gmail.com"
+                      href="mailto:contacto@pvsestudio.com"
                       aria-label="Envíanos un correo electrónico"
                       className="flex items-center space-x-4 p-3 hover:bg-gray-800 rounded-xl transition-all hover:scale-105"
                     >
