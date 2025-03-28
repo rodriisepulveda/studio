@@ -6,6 +6,7 @@ import About from "./components/sections/About";
 import Services from "./components/sections/Services";
 import ContactForm from "./components/sections/ContactForm";
 import Footer from "./components/sections/Footer";
+import FloatingWhatsApp from './components/WhatsApp/FloatingWhatsApp';
 
 function App() {
   useEffect(() => {
@@ -35,6 +36,7 @@ function App() {
         <ContactForm />
         <Footer />
       </main>
+      <FloatingWhatsApp />
     </>
   );
 }
