@@ -4,77 +4,79 @@ import { WhatsappSVG, CloseSVG, CheckSVG, SendSVG } from "./Icons";
 import css from "./styles.module.css";
 
 const FloatingWhatsApp = () => {
-  const [{ isOpen, isDelay, isNotification }, dispatch] = useReducer(reducer, {
+  const [{ isOpen, isDelay }, dispatch] = useReducer(reducer, {
     isOpen: false,
     isDelay: true,
     isNotification: false
   });
 
   const inputRef = useRef(null);
-  const timeNow = new Date().toLocaleTimeString([], { 
-    hour: "2-digit", 
-    minute: "2-digit" 
-  });
+  const chatBodyRef = useRef(null);
+  
+  const initialMessage = "¡Hola! 👋 Dejanos tu mensaje a través de WhatsApp!";
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!inputRef.current?.value) return;
+    const message = inputRef.current?.value.trim();
+    if (!message) return;
 
     window.open(
-      `https://wa.me/5492996230720?text=${encodeURIComponent(inputRef.current.value)}`,
+      `https://wa.me/5492996230720?text=${encodeURIComponent(message)}`,
       '_blank'
     );
+
     inputRef.current.value = '';
     dispatch({ type: "close" });
   };
 
   const handleOpen = () => {
     dispatch({ type: "open" });
-    setTimeout(() => dispatch({ type: "delay" }), 2000);
+    setTimeout(() => {
+      dispatch({ type: "delay" });
+      if (inputRef.current) {
+        inputRef.current.focus();
+      }
+    }, 1000);
   };
-
-  const handleClose = () => {
-    dispatch({ type: "close" });
-  };
-
-  useEffect(() => {
-    const notificationInterval = setInterval(() => {
-      if (!isOpen) dispatch({ type: "notification" });
-    }, 60000);
-
-    return () => clearInterval(notificationInterval);
-  }, [isOpen]);
 
   return (
     <div className={css.floatingWhatsapp}>
-      <div 
+      <button 
         className={css.whatsappButton} 
         onClick={handleOpen}
+        aria-label="Abrir chat de WhatsApp"
       >
         <WhatsappSVG />
-        {isNotification && (
-          <span className={css.notificationIndicator}>1</span>
-        )}
-      </div>
+      </button>
 
       <div 
         className={`${css.whatsappChatBox} ${isOpen ? css.open : css.close}`}
-        onClick={(e) => e.stopPropagation()}
       >
         <header className={css.chatHeader}>
           <div className={css.avatar}>
-            <img src="src\assets\imgs\pvs.png" alt="PVS Estudio" />
+            <img 
+              src="/src/assets/imgs/pvs.png" 
+              alt="PVS Estudio" 
+              width="60" 
+              height="60"
+            />
           </div>
           <div className={css.status}>
             <span className={css.statusTitle}>PVS Estudio</span>
-            <span className={css.statusSubtitle}>Responderemos a la brevedad</span>
+            <span className={css.statusSubtitle}>
+              {isDelay ? "Escribiendo..." : "En línea"}
+            </span>
           </div>
-          <div className={css.close} onClick={handleClose}>
+          <button 
+            className={css.close} 
+            onClick={() => dispatch({ type: "close" })}
+            aria-label="Cerrar chat"
+          >
             <CloseSVG />
-          </div>
+          </button>
         </header>
 
-        <div className={css.chatBody}>
+        <div className={css.chatBody} ref={chatBodyRef}>
           {isDelay ? (
             <div className={css.chatBubble}>
               <div className={css.typing}>
@@ -87,9 +89,12 @@ const FloatingWhatsApp = () => {
             <div className={css.message}>
               <span className={css.triangle} />
               <span className={css.accountName}>PVS Estudio</span>
-              <p className={css.messageBody}>¡Hola! 👋 ¿En qué podemos ayudarte?</p>
+              <p className={css.messageBody}>{initialMessage}</p>
               <span className={css.messageTime}>
-                {timeNow}
+                {new Date().toLocaleTimeString([], { 
+                  hour: "2-digit", 
+                  minute: "2-digit" 
+                })}
                 <CheckSVG />
               </span>
             </div>
@@ -102,8 +107,14 @@ const FloatingWhatsApp = () => {
               ref={inputRef}
               className={css.input}
               placeholder="Escribe un mensaje..."
+              aria-label="Escribe tu mensaje"
+              style={{ color: '#333', backgroundColor: '#fff' }}
             />
-            <button type="submit" className={css.buttonSend}>
+            <button 
+              type="submit" 
+              className={css.buttonSend}
+              aria-label="Enviar mensaje"
+            >
               <SendSVG />
             </button>
           </form>
@@ -113,4 +124,4 @@ const FloatingWhatsApp = () => {
   );
 };
 
-export default FloatingWhatsApp; 
+export default FloatingWhatsApp;

@@ -244,120 +244,78 @@
   }
   
   .chatFooter {
-    padding: 0.25rem;
+    padding: 8px;
     background-color: #f0f0f0;
   }
   
   .chatFooter form {
-    display: -ms-grid;
-    display: grid;
+    position: relative;
+    display: flex;
     align-items: center;
-    grid-template-columns: 85% 15%;
-    padding: 0.25rem;
   }
   
-  .chatFooter form .input {
+  .input {
+    width: 100%;
     border-radius: 20px;
-    padding: 0 10px;
+    padding: 9px 12px;
+    padding-right: 40px;
     border: none;
-    background-color: #fefefe;
-    min-height: 45px;
-    transition: box-shadow 0.2s ease-in-out;
+    background-color: #fff;
+    color: #333;
+    font-size: 15px;
+    line-height: 20px;
+    outline: none;
   }
   
-  .chatFooter form .input:focus {
-    border-color: #075e54;
-    outline: 0;
-    box-shadow: 0 0 0 1px rgb(7 94 84 / 50%);
+  .input::placeholder {
+    color: #8696a0;
   }
   
-  .chatFooter form .input::-webkit-input-placeholder {
-    color: #949494;
-  }
-  
-  .chatFooter form .input::-moz-placeholder {
-    color: #949494;
-  }
-  
-  .chatFooter form .input:-ms-input-placeholder {
-    color: #949494;
-  }
-  
-  .chatFooter form .input::-ms-input-placeholder {
-    color: #949494;
-  }
-  
-  .chatFooter form .input::placeholder {
-    color: #949494;
-  }
-  
-  .chatFooter form .buttonSend {
-    background-color: transparent;
-    border: 0;
+  .buttonSend {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
     cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
-  .chatFooter form .buttonSend svg {
-    vertical-align: middle;
-    fill: #919191;
+  .buttonSend svg {
+    fill: #54656f;
+    width: 24px;
+    height: 24px;
+    transition: fill 0.2s ease;
   }
   
-  .chatFooter form .buttonSend:disabled {
-    pointer-events: none;
-    opacity: 0.5;
+  .buttonSend:hover svg {
+    fill: #25d366;
   }
   
-  /* dark mode */
-  .dark .chatBody {
-    background-color: #0d1418;
-  }
-  
-  .dark .chatBody .message {
-    background-color: #056162;
-    box-shadow: rgb(0 0 0 / 70%) 0px 1px 0.5px;
-  }
-  
-  .dark .chatBody .accountName {
-    color: rgb(255 255 255 / 50%);
-  }
-  
-  .dark .chatBody .messageBody {
-    color: rgb(241 241 242 / 90%);
-  }
-  
-  .dark .chatBody .message .triangle {
-    border-color: transparent #056162 transparent transparent;
-  }
-  
-  .dark .chatBody .messageTime {
-    color: rgb(255 255 255 / 50%);
-  }
-  
+  /* Modo oscuro */
   .dark .chatFooter {
-    background-color: #1e2428;
+    background-color: #202c33;
   }
   
-  .dark .chatFooter form .input {
-    background-color: #33383b;
-    color: #f1f1f2;
+  .dark .input {
+    background-color: #2a3942;
+    color: #d1d7db;
   }
   
-  .dark .chatFooter form .input:focus {
-    border-color: #0da896;
-    outline: 0;
-    box-shadow: 0 0 0 1px rgb(13 168 150 / 50%);
+  .dark .input::placeholder {
+    color: #8696a0;
   }
   
-  .dark .chatFooter form .buttonSend svg {
-    fill: rgb(104, 104, 104);
+  .dark .buttonSend svg {
+    fill: #8696a0;
   }
   
-  .dark .chatBubble {
-    background-color: #32373a;
-  }
-  
-  .dark .typing .dot {
-    background-color: rgba(46, 148, 106, 0.7);
+  .dark .buttonSend:hover svg {
+    fill: #25d366;
   }
   
   /* keyframes */
