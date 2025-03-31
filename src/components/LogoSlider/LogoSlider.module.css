@@ -1,13 +1,13 @@
 .wrapper {
   overflow: hidden;
   position: relative;
-  padding: 0.5 rem 0;
+  padding: 0.5rem 0;
   margin: 0 auto;
   width: 100%;
 }
 
 .sliderTrack {
-  overflow: visible; /* Cambiado a visible para permitir zoom */
+  overflow: visible;
   position: relative;
 }
 
@@ -21,12 +21,12 @@
 
 .logoContainer {
   flex: 0 0 auto;
-  padding: 0 1.5rem; /* Aumentado el padding horizontal */
+  padding: 0 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
-  min-height: 70px; /* Altura mínima aumentada para contener el zoom */
+  min-height: 70px;
   position: relative;
 }
 
@@ -36,15 +36,20 @@
   max-width: 120px;
   object-fit: contain;
   opacity: 0.3;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
   z-index: 1;
+  filter: brightness(0.9) contrast(1.1);
+  mix-blend-mode: luminosity;
+  transform-origin: center;
 }
 
 .logoContainer:hover .logo {
   opacity: 1;
   transform: scale(1.15);
-  z-index: 2; /* Asegura que el logo con zoom aparezca sobre los demás */
+  z-index: 10;
+  filter: brightness(1.1) contrast(1.3) drop-shadow(0 0 3px rgba(0,0,0,0.2));
+  mix-blend-mode: normal;
 }
 
 @keyframes slide {
@@ -56,32 +61,43 @@
   }
 }
 
+/* Modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .logo {
+    filter: brightness(0.95) contrast(1.3) drop-shadow(0 0 1px rgba(255,255,255,0.3));
+    opacity: 0.4;
+  }
+  .logoContainer:hover .logo {
+    filter: brightness(1.15) contrast(1.5) drop-shadow(0 0 4px rgba(255,255,255,0.4));
+  }
+}
+
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   .logoContainer {
-    padding: 0 2rem;
-    min-height: 60px;
+    padding: 0 1.75rem;
+    min-height: 65px;
   }
   
   .logo {
-    height: 2rem;
-    max-width: 100px;
+    height: 2.25rem;
+    max-width: 110px;
   }
 }
 
 @media (max-width: 768px) {
   .wrapper {
-    padding: 2rem 0;
+    padding: 1.5rem 0;
   }
   
   .logoContainer {
     padding: 0 1.5rem;
-    min-height: 50px;
+    min-height: 55px;
   }
   
   .logo {
-    height: 1.75rem;
-    max-width: 80px;
+    height: 2rem;
+    max-width: 90px;
   }
   
   .sliderContent {
@@ -91,17 +107,17 @@
 
 @media (max-width: 480px) {
   .wrapper {
-    padding: 1.5rem 0;
+    padding: 1rem 0;
   }
   
   .logoContainer {
-    padding: 0 1.25rem;
+    padding: 0 1rem;
     min-height: 45px;
   }
   
   .logo {
-    height: 1.5rem;
-    max-width: 70px;
+    height: 1.75rem;
+    max-width: 75px;
   }
   
   .sliderContent {
