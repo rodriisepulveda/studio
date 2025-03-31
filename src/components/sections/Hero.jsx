@@ -152,6 +152,7 @@ const Hero = () => {
           to="about"
           spy={true}
           smooth={true}
+          offset={-80}
           href="#about"
           className="text-gray-300 cursor-pointer focus:outline-none"
           aria-label="Desplazarse a la sección siguiente"

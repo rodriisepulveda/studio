@@ -52,18 +52,22 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="h-[85vh] py-8 px-4 relative overflow-hidden">
-      <div className="container mx-auto relative z-10">
+    <section 
+      id="about" 
+      className="min-h-screen pt-20 pb-16 relative overflow-hidden flex items-center"
+      aria-labelledby="about-heading"
+    >
+      <div className="container mx-auto px-4 py-8">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center mb-4"
+          className="max-w-4xl mx-auto text-center mb-12"
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
+          <h2 id="about-heading" className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
             Sobre Nosotros
           </h2>
-          <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mt-2">
+          <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 mt-4">
             Conoce al equipo detrás de las soluciones
           </p>
         </motion.div>

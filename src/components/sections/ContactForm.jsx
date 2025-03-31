@@ -174,8 +174,12 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact" className="py-12 md:py-20 relative overflow-hidden" aria-labelledby="contact-heading">
-      <div className="container mx-auto px-4 relative z-10">
+    <section 
+      id="contact" 
+      className="min-h-screen pt-20 pb-16 relative overflow-hidden flex items-center"
+      aria-labelledby="contact-heading"
+    >
+      <div className="container mx-auto px-4 py-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

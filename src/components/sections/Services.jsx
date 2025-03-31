@@ -71,15 +71,21 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="min-h-screen py-12 md:py-20">
-      <div className="container mx-auto px-4">
+    <section 
+      id="services" 
+      className="min-h-screen pt-20 pb-16 relative overflow-hidden flex items-center"
+      aria-labelledby="services-heading"
+    >
+      <div className="container mx-auto px-4 py-8">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center mb-8 md:mb-12"
+          className="max-w-4xl mx-auto text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Nuestros Servicios</h2>
+          <h2 id="services-heading" className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+            Nuestros Servicios
+          </h2>
           <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 mt-4">
             Soluciones digitales completas para potenciar tu negocio.
           </p>
