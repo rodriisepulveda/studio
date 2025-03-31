@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 import ImageSlider from '../ui/ImageSlider';
+import LogoSlider from '../LogoSlider/LogoSlider';
 
 // Importar imágenes
 import meeting1 from '../../assets/imgs/hero/meeting1.jpeg';
@@ -36,11 +37,31 @@ const Hero = () => {
     { src: pexelsPhoto11813187, alt: "Profesionales discutiendo soluciones digitales" },
   ];
 
+  // Array de logos para el slider
+  const logos = [
+    { src: "/src/assets/imgs/tech/Android.svg", alt: "Android" },
+    { src: "/src/assets/imgs/tech/AWS.svg", alt: "AWS" },
+    { src: "/src/assets/imgs/tech/Express.svg", alt: "Express" },
+    { src: "/src/assets/imgs/tech/Firebase.svg", alt: "Firebase" },
+    { src: "/src/assets/imgs/tech/HTML5.svg", alt: "HTML5" },
+    { src: "/src/assets/imgs/tech/Java.svg", alt: "Java" },
+    { src: "/src/assets/imgs/tech/JavaScript.svg", alt: "JavaScript" },
+    { src: "/src/assets/imgs/tech/Kotlin.svg", alt: "Kotlin" },
+    { src: "/src/assets/imgs/tech/MongoDB.svg", alt: "MongoDB" },
+    { src: "/src/assets/imgs/tech/MySQL.svg", alt: "MySQL" },
+    { src: "/src/assets/imgs/tech/Node.js.svg", alt: "Node.js" },
+    { src: "/src/assets/imgs/tech/PHP.svg", alt: "PHP" },
+    { src: "/src/assets/imgs/tech/React.svg", alt: "React" },
+    { src: "/src/assets/imgs/tech/Tailwind CSS.svg", alt: "Tailwind CSS" }
+  ];
+
   return (
     <section 
       id="hero" 
       className="min-h-screen relative overflow-hidden flex items-center"
       aria-labelledby="hero-heading"
+      data-scroll
+      data-scroll-speed="-0.5"
     >
       <h1 id="hero-heading" className="sr-only">PVS - Soluciones digitales para tu negocio</h1>
 
@@ -112,12 +133,17 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Degradado de transición */}
-      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-gray-900 via-gray-900/80 to-transparent z-5" aria-hidden="true"></div>
+      {/* Logo Slider - Se mantiene en su posición actual */}
+      <div className="absolute bottom-20 w-full z-20">
+        <LogoSlider logos={logos} />
+      </div>
 
-      {/* Flecha de scroll */}
+      {/* Degradado de transición - Más sutil y menos alto */}
+      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-gray-900 via-gray-900/70 to-transparent z-15" aria-hidden="true"></div>
+
+      {/* Flecha de scroll - Se mantiene en su posición actual */}
       <motion.div 
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-25"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}

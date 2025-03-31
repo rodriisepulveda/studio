@@ -2,9 +2,10 @@ import React, { useReducer, useEffect, useRef } from "react";
 import { reducer } from "./reducer";
 import { WhatsappSVG, CloseSVG, CheckSVG, SendSVG } from "./Icons";
 import css from "./styles.module.css";
+import styles from "./styles.module.css";
 
 const FloatingWhatsApp = () => {
-  const [{ isOpen, isDelay }, dispatch] = useReducer(reducer, {
+  const [{ isOpen, isDelay, isNotification }, dispatch] = useReducer(reducer, {
     isOpen: false,
     isDelay: true,
     isNotification: false
@@ -14,6 +15,16 @@ const FloatingWhatsApp = () => {
   const chatBodyRef = useRef(null);
   
   const initialMessage = "¡Hola! 👋 Dejanos tu mensaje a través de WhatsApp!";
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!isOpen) {
+        dispatch({ type: "showNotification" });
+      }
+    }, 10000);
+
+    return () => clearTimeout(timer);
+  }, [isOpen]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,6 +42,7 @@ const FloatingWhatsApp = () => {
 
   const handleOpen = () => {
     dispatch({ type: "open" });
+    dispatch({ type: "hideNotification" });
     setTimeout(() => {
       dispatch({ type: "delay" });
       if (inputRef.current) {
@@ -40,13 +52,14 @@ const FloatingWhatsApp = () => {
   };
 
   return (
-    <div className={css.floatingWhatsapp}>
+    <div data-scroll data-scroll-sticky data-scroll-target="#main-container" className={styles.floatingWhatsapp}>
       <button 
         className={css.whatsappButton} 
         onClick={handleOpen}
         aria-label="Abrir chat de WhatsApp"
       >
         <WhatsappSVG />
+        {isNotification && <span className={css.notificationIndicator}>1</span>}
       </button>
 
       <div 

@@ -238,5 +238,93 @@
     linear-gradient(225deg, rgba(54, 99, 255, 0.03) 25%, transparent 25%) -10px 0,
     linear-gradient(315deg, rgba(54, 99, 255, 0.03) 25%, transparent 25%),
     linear-gradient(45deg, rgba(54, 99, 255, 0.03) 25%, transparent 25%);
+}
+
+/* Asegura el scroll suave */
+html.has-scroll-smooth {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Mejora la visibilidad del efecto */
+[data-scroll] {
+  will-change: transform;
+}
+
+/* Oculta la barra de scroll por defecto */
+html.has-scroll-smooth {
+  overflow: hidden;
+}
+
+/* Estiliza la barra de scroll de Locomotive */
+.c-scrollbar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 11px;
+  height: 100vh;
+  transform-origin: center right;
+  transition: transform 0.3s, opacity 0.3s;
+  opacity: 0;
+}
+
+.c-scrollbar:hover {
+  transform: scaleX(1.45);
+  opacity: 1;
+}
+
+.c-scrollbar_thumb {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #3663ff;
+  opacity: 0.5;
+  width: 7px;
+  border-radius: 10px;
+  margin: 2px;
+  cursor: grab;
+}
+
+.has-scroll-dragging .c-scrollbar_thumb {
+  cursor: grabbing;
+}
+
+[data-scroll-container] {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Asegura que los elementos fixed estén siempre visibles */
+.fixed-element {
+  position: fixed !important;
+  transform: none !important;
+  will-change: auto !important;
+}
+
+.fixed-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.fixed-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.fixed-layer > * {
+  pointer-events: auto;
+}
+
+.whatsapp-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9999;
 } 
 

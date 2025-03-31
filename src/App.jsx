@@ -10,7 +10,6 @@ import FloatingWhatsApp from './components/WhatsApp/FloatingWhatsApp';
 
 function App() {
   useEffect(() => {
-    // Siempre establece el tema oscuro
     document.documentElement.classList.add('dark');
     localStorage.setItem('theme', 'dark');
   }, []);
@@ -27,8 +26,8 @@ function App() {
           },
         }}
       />
-      {/* Navbar fuera del main con z-index más alto */}
       <Navbar />
+      <FloatingWhatsApp />
       <main className="relative min-h-screen bg-pattern-3">
         <Hero />
         <About />
@@ -36,7 +35,6 @@ function App() {
         <ContactForm />
         <Footer />
       </main>
-      <FloatingWhatsApp />
     </>
   );
 }

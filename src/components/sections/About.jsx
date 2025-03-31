@@ -52,53 +52,55 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="h-screen pt-24 pb-20 px-4 bg-white dark:bg-gray-900">
-      <div className="container mx-auto h-full flex flex-col">
+    <section id="about" className="h-[85vh] py-8 px-4 relative overflow-hidden">
+      <div className="container mx-auto relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center mb-6"
+          className="max-w-4xl mx-auto text-center mb-4"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Sobre Nosotros</h2>
-          <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 mt-3">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
+            Sobre Nosotros
+          </h2>
+          <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mt-2">
             Conoce al equipo detrás de las soluciones
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 flex-1">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
           {/* Columna izquierda - Team Slider */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex items-center justify-center mb-4 lg:mb-0"
+            className="flex items-center justify-center"
           >
             <TeamSlider team={team} />
           </motion.div>
 
-          {/* Columna derecha - Cards existentes */}
+          {/* Columna derecha - Cards */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-3 md:space-y-4"
+            className="space-y-3 md:space-y-4 flex flex-col justify-center"
           >
             {[
               {
-                icon: <RiLightbulbLine className="w-8 h-8 text-white" />, 
+                icon: <RiLightbulbLine className="w-6 h-6 md:w-8 md:h-8 text-white" />, 
                 title: "Innovación", 
                 description: "Buscamos constantemente nuevas tecnologías y soluciones para ofrecer lo mejor a nuestros clientes."
               },
               {
-                icon: <RiTeamLine className="w-8 h-8 text-white" />, 
+                icon: <RiTeamLine className="w-6 h-6 md:w-8 md:h-8 text-white" />, 
                 title: "Experiencia", 
                 description: "Garantizamos un servicio de calidad, robusto, eficiente y un equipo de trabajo altamente capacitado."
               },
               {
-                icon: <RiShieldCheckLine className="w-8 h-8 text-white" />, 
+                icon: <RiShieldCheckLine className="w-6 h-6 md:w-8 md:h-8 text-white" />, 
                 title: "Calidad", 
-                description: "Colaboramos estrechamente con el cliente en cada etapa del proceso, asegurando un producto final que no solo cumpla, sino que supere tus expectativas."
+                description: "Colaboramos estrechamente con el cliente en cada etapa del proceso, asegurando un producto final que supere tus expectativas."
               },
             ].map((feature, index) => (
               <motion.div
@@ -106,20 +108,23 @@ const About = () => {
                 variants={itemVariants}
                 whileHover={{ 
                   scale: 1.02,
-                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
                   transition: { duration: 0.2 }
                 }}
-                className="p-4 md:p-8 bg-white dark:bg-gray-700 rounded-xl shadow-lg flex flex-col items-center w-full
-                         transform transition-all duration-200 hover:border-[#ff585e] dark:hover:border-[#3663ff]
-                         border-2 border-transparent"
+                className="p-4 md:p-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl 
+                           shadow-lg flex flex-col items-center
+                           transform transition-all duration-200 
+                           hover:border-[#ff585e] dark:hover:border-[#3663ff]
+                           border-2 border-transparent"
               >
-                <div className="w-12 h-12 md:w-16 md:h-16 bg-[#ff585e] dark:bg-[#3663ff] rounded-full flex items-center justify-center mb-4">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-[#ff585e] dark:bg-[#3663ff] 
+                              rounded-full flex items-center justify-center mb-3"
+                >
                   {feature.icon}
                 </div>
-                <h3 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 dark:text-white">
+                <h3 className="text-base md:text-lg font-semibold mb-2 text-gray-900 dark:text-white">
                   {feature.title}
                 </h3>
-                <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 text-center">
+                <p className="text-sm text-gray-600 dark:text-gray-300 text-center">
                   {feature.description}
                 </p>
               </motion.div>
