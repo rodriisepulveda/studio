@@ -1,4 +1,5 @@
 "use client";
+import React from 'react';
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
@@ -15,6 +16,22 @@ import meeting6 from '../../assets/imgs/hero/meeting6.jpeg';
 import meeting7 from '../../assets/imgs/hero/meeting7.jpeg';
 import pexelsPhoto3726363 from '../../assets/imgs/hero/pexels-photo-3726363.jpeg';
 import pexelsPhoto11813187 from '../../assets/imgs/hero/pexels-photo-11813187.jpeg';
+
+// Importar logos
+import androidLogo from '../../assets/imgs/tech/Android.png';
+import awsLogo from '../../assets/imgs/tech/AWS.png';
+import expressLogo from '../../assets/imgs/tech/Express.png';
+import firebaseLogo from '../../assets/imgs/tech/Firebase.png';
+import html5Logo from '../../assets/imgs/tech/HTML5.png';
+import javaLogo from '../../assets/imgs/tech/Java.png';
+import javascriptLogo from '../../assets/imgs/tech/JavaScript.png';
+import kotlinLogo from '../../assets/imgs/tech/Kotlin.png';
+import mongodbLogo from '../../assets/imgs/tech/MongoDB.png';
+import mysqlLogo from '../../assets/imgs/tech/MySQL.png';
+import nodejsLogo from '../../assets/imgs/tech/Node.js.png';
+import phpLogo from '../../assets/imgs/tech/PHP.png';
+import reactLogo from '../../assets/imgs/tech/React.png';
+import tailwindLogo from '../../assets/imgs/tech/Tailwind CSS.png';
 
 const Hero = () => {
   const words = [
@@ -39,20 +56,20 @@ const Hero = () => {
 
   // Array de logos para el slider
   const logos = [
-    { src: "/src/assets/imgs/tech/Android.svg", alt: "Android" },
-    { src: "/src/assets/imgs/tech/AWS.svg", alt: "AWS" },
-    { src: "/src/assets/imgs/tech/Express.svg", alt: "Express" },
-    { src: "/src/assets/imgs/tech/Firebase.svg", alt: "Firebase" },
-    { src: "/src/assets/imgs/tech/HTML5.svg", alt: "HTML5" },
-    { src: "/src/assets/imgs/tech/Java.svg", alt: "Java" },
-    { src: "/src/assets/imgs/tech/JavaScript.svg", alt: "JavaScript" },
-    { src: "/src/assets/imgs/tech/Kotlin.svg", alt: "Kotlin" },
-    { src: "/src/assets/imgs/tech/MongoDB.svg", alt: "MongoDB" },
-    { src: "/src/assets/imgs/tech/MySQL.svg", alt: "MySQL" },
-    { src: "/src/assets/imgs/tech/Node.js.svg", alt: "Node.js" },
-    { src: "/src/assets/imgs/tech/PHP.svg", alt: "PHP" },
-    { src: "/src/assets/imgs/tech/React.svg", alt: "React" },
-    { src: "/src/assets/imgs/tech/Tailwind CSS.svg", alt: "Tailwind CSS" }
+    { src: androidLogo, alt: "Android" },
+    { src: awsLogo, alt: "AWS" },
+    { src: expressLogo, alt: "Express" },
+    { src: firebaseLogo, alt: "Firebase" },
+    { src: html5Logo, alt: "HTML5" },
+    { src: javaLogo, alt: "Java" },
+    { src: javascriptLogo, alt: "JavaScript" },
+    { src: kotlinLogo, alt: "Kotlin" },
+    { src: mongodbLogo, alt: "MongoDB" },
+    { src: mysqlLogo, alt: "MySQL" },
+    { src: nodejsLogo, alt: "Node.js" },
+    { src: phpLogo, alt: "PHP" },
+    { src: reactLogo, alt: "React" },
+    { src: tailwindLogo, alt: "Tailwind CSS" }
   ];
 
   return (

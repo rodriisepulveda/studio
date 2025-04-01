@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { RiCodeSSlashLine, RiSmartphoneLine, RiSettings4Line, RiLayoutGridLine } from 'react-icons/ri';
-
+import React from 'react';
 const Services = () => {
   const services = [
     {
