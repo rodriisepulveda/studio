@@ -19,9 +19,40 @@ const ContactForm = () => {
     phone: '',
     message: ''
   });
-  const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState('AR');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
+  const [phoneData, setPhoneData] = useState({
+    countryCode: '',
+    number: ''
+  });
+
+  // Lista estática de países con sus códigos
+  const countries = [
+    // Latinoamérica
+    { code: 'AR', name: 'ARG', dialCode: '54' },
+    { code: 'UY', name: 'UR', dialCode: '598' },
+    { code: 'CL', name: 'CH', dialCode: '56' },
+    { code: 'PY', name: 'PY', dialCode: '595' },
+    { code: 'BO', name: 'BOL', dialCode: '591' },
+    { code: 'PE', name: 'PE', dialCode: '51' },
+    { code: 'CO', name: 'COL', dialCode: '57' },
+    { code: 'EC', name: 'EC', dialCode: '593' },
+    { code: 'VE', name: 'VE', dialCode: '58' },
+    { code: 'BR', name: 'BR', dialCode: '55' },
+    { code: 'MX', name: 'MX', dialCode: '52' },
+    // Otros países principales
+    { code: 'US', name: 'USA', dialCode: '1' },
+    { code: 'ES', name: 'ESP', dialCode: '34' },
+    { code: 'IT', name: 'ITA', dialCode: '39' },
+    { code: 'FR', name: 'FR', dialCode: '33' },
+    { code: 'DE', name: 'GER', dialCode: '49' },
+    { code: 'GB', name: 'ENG', dialCode: '44' },
+    { code: 'CA', name: 'CA', dialCode: '1' },
+    { code: 'AU', name: 'AUS', dialCode: '61' },
+    { code: 'NZ', name: 'NZ', dialCode: '64' }
+  ];
 
   // Array de imágenes con sus textos alt
   const contactImages = [
@@ -31,27 +62,6 @@ const ContactForm = () => {
     { src: contact4, alt: "Presentación de un proyecto de software" },
   ];
 
-  useEffect(() => {
-    const fetchCountries = async () => {
-      try {
-        const response = await fetch('https://restcountries.com/v3.1/all');
-        const data = await response.json();
-        const formattedCountries = data
-          .map(country => ({
-            code: country.cca2,
-            name: country.name.common,
-            dialCode: country.idd.root + (country.idd.suffixes ? country.idd.suffixes[0] : '')
-          }))
-          .sort((a, b) => a.name.localeCompare(b.name));
-        setCountries(formattedCountries);
-      } catch (error) {
-        console.error('Error al cargar países:', error);
-      }
-    };
-
-    fetchCountries();
-  }, []);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -60,8 +70,32 @@ const ContactForm = () => {
     }));
   };
 
-  const handleCountryChange = (e) => {
-    setSelectedCountry(e.target.value);
+  const handleCountryChange = (countryCode) => {
+    setSelectedCountry(countryCode);
+    const country = countries.find(c => c.code === countryCode);
+    if (country) {
+      setPhoneData(prev => ({
+        ...prev,
+        countryCode: country.dialCode
+      }));
+    }
+    setIsOpen(false);
+    setSearchTerm('');
+  };
+
+  const handlePhoneChange = (e) => {
+    const { name, value } = e.target;
+    setPhoneData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    
+    // Actualizar el campo phone del formData con el formato completo
+    const fullPhone = `${phoneData.countryCode}${value}`;
+    setFormData(prev => ({
+      ...prev,
+      phone: fullPhone
+    }));
   };
 
   const handleSubmit = async (e) => {
@@ -75,8 +109,12 @@ const ContactForm = () => {
         return;
       }
 
-      const selectedCountryData = countries.find(country => country.code === selectedCountry);
-      const fullPhone = `${selectedCountryData.dialCode} ${formData.phone}`;
+      let fullPhone;
+      if (!phoneData.countryCode || !phoneData.number) {
+        toast.error('Por favor, completa todos los campos del teléfono');
+        return;
+      }
+      fullPhone = `${phoneData.countryCode}${phoneData.number}`;
       
       // Agregar timestamp y datos adicionales
       const emailData = {
@@ -85,7 +123,6 @@ const ContactForm = () => {
         to_email: 'contacto@pvsestudio.com',
         timestamp: new Date().toISOString(),
         userAgent: navigator.userAgent,
-        // Datos para ayudar a identificar spam
         referrer: document.referrer,
         timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
         screenResolution: `${window.screen.width}x${window.screen.height}`,
@@ -101,6 +138,7 @@ const ContactForm = () => {
       
       toast.success('¡Mensaje enviado!');
       setFormData({ name: '', email: '', phone: '', message: '' });
+      setPhoneData({ countryCode: '', number: '' });
     } catch (error) {
       toast.error('Error al enviar el mensaje. Por favor, intenta nuevamente.');
       console.error('Error al enviar el mensaje:', error);
@@ -152,8 +190,12 @@ const ContactForm = () => {
     }
 
     // Validar teléfono
-    const phoneDigits = formData.phone.replace(/\D/g, '');
-    if (phoneDigits.length < 8 || phoneDigits.length > 15) {
+    if (!phoneData.countryCode || !phoneData.number) {
+      toast.error('Por favor, completa todos los campos del teléfono');
+      return false;
+    }
+    const phoneDigits = phoneData.number.replace(/\D/g, '');
+    if (phoneDigits.length < 6 || phoneDigits.length > 12) {
       toast.error('Por favor, ingresa un número de teléfono válido');
       return false;
     }
@@ -172,6 +214,13 @@ const ContactForm = () => {
 
     return true;
   };
+
+  const filteredCountries = countries.filter(country => 
+    country.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    country.dialCode.includes(searchTerm)
+  );
+
+  const selectedCountryData = countries.find(c => c.code === selectedCountry);
 
   return (
     <section 
@@ -270,36 +319,86 @@ const ContactForm = () => {
                       <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
                         Teléfono
                       </label>
-                      <div className="flex flex-col sm:flex-row gap-2">
-                        <select
-                          aria-label="Selecciona tu país"
-                          value={selectedCountry}
-                          onChange={handleCountryChange}
-                          className="w-full sm:w-64 px-4 py-2 rounded-xl border border-gray-600 
-                                     bg-gray-800 text-white
-                                     focus:ring-2 focus:ring-[#3663ff] focus:border-transparent"
-                        >
-                          <option value="">Selecciona un país</option>
-                          {countries.map(country => (
-                            <option key={country.code} value={country.code}>
-                              {country.name} ({country.dialCode})
-                            </option>
-                          ))}
-                        </select>
-                        <input
-                          type="tel"
-                          id="phone"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          required
-                          placeholder="Número de teléfono"
-                          className="w-full flex-1 px-4 py-2 rounded-xl border border-gray-600 
-                                     bg-gray-800 text-white
-                                     focus:ring-2 focus:ring-[#3663ff] focus:border-transparent"
-                          aria-required="true"
-                        />
+                      <div className="grid grid-cols-12 gap-2">
+                        {/* Selector de país */}
+                        <div className="col-span-4 relative">
+                          <button
+                            type="button"
+                            onClick={() => setIsOpen(!isOpen)}
+                            className="w-full h-10 px-3 rounded-xl border border-gray-600 
+                                     bg-gray-800 text-white text-left flex items-center justify-between
+                                     focus:ring-2 focus:ring-[#3663ff] focus:border-transparent 
+                                     hover:border-gray-500 transition-colors"
+                          >
+                            <span className="flex items-center min-w-0">
+                              {selectedCountryData ? (
+                                <div className="flex items-center min-w-0">
+                                  <span className="text-sm font-medium truncate">{selectedCountryData.name}</span>
+                                  <span className="text-xs text-gray-400 ml-1 shrink-0">+{selectedCountryData.dialCode}</span>
+                                </div>
+                              ) : (
+                                <span className="text-sm text-gray-400">Seleccionar</span>
+                              )}
+                            </span>
+                            <svg className="w-4 h-4 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </button>
+
+                          {isOpen && (
+                            <div className="absolute z-50 w-full mt-1 bg-gray-800 rounded-xl border border-gray-600 shadow-xl">
+                              <div className="p-3 border-b border-gray-600">
+                                <input
+                                  type="text"
+                                  value={searchTerm}
+                                  onChange={(e) => setSearchTerm(e.target.value)}
+                                  placeholder="Buscar país..."
+                                  className="w-full px-3 py-2 text-sm rounded-lg bg-gray-700 text-white border border-gray-600
+                                           focus:ring-2 focus:ring-[#3663ff] focus:border-transparent
+                                           placeholder-gray-400"
+                                />
+                              </div>
+                              <div className="max-h-48 overflow-y-auto">
+                                {filteredCountries.map(country => (
+                                  <button
+                                    key={country.code}
+                                    type="button"
+                                    onClick={() => handleCountryChange(country.code)}
+                                    className={`w-full px-3 py-2 text-left hover:bg-gray-700 transition-colors
+                                              border-b border-gray-700 last:border-b-0
+                                              ${selectedCountry === country.code ? 'bg-[#3663ff] text-white' : 'text-gray-300'}`}
+                                  >
+                                    <div className="flex items-center justify-between">
+                                      <span className="text-sm font-medium">{country.name}</span>
+                                      <span className="text-xs text-gray-400">+{country.dialCode}</span>
+                                    </div>
+                                  </button>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Campo de número */}
+                        <div className="col-span-8">
+                          <input
+                            type="tel"
+                            name="number"
+                            value={phoneData.number}
+                            onChange={handlePhoneChange}
+                            required
+                            placeholder="Número de teléfono"
+                            className="w-full h-10 px-3 rounded-xl border border-gray-600 
+                                     bg-gray-800 text-white placeholder-gray-400
+                                     focus:ring-2 focus:ring-[#3663ff] focus:border-transparent
+                                     hover:border-gray-500 transition-colors"
+                            aria-required="true"
+                          />
+                        </div>
                       </div>
+                      <p className="text-xs text-gray-400 mt-2 ml-1">
+                        Ingresa tu número sin el 0 inicial (ej: para Argentina 2991234567)
+                      </p>
                     </div>
 
                     <div>
