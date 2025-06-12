@@ -30,8 +30,8 @@ function App() {
       <FloatingWhatsApp />
       <main className="relative min-h-screen bg-pattern-3">
         <Hero />
-        <About />
         <Services />
+        <About />
         <ContactForm />
         <Footer />
       </main>
