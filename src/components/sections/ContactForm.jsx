@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
@@ -8,7 +9,7 @@ import toast from 'react-hot-toast';
 
 // Importar imágenes de contacto
 import contact1 from '../../assets/imgs/contact/contact1.jpeg';
-import contact2 from '../../assets/imgs/contact/contac2.jpeg';
+import contact2 from '../../assets/imgs/contact/contact2.jpeg';
 import contact3 from '../../assets/imgs/contact/contact3.jpeg';
 import contact4 from '../../assets/imgs/contact/contact4.jpeg';
 
